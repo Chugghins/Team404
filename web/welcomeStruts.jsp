@@ -24,6 +24,7 @@
         <p><bean:message key="welcome.message"/></p>
         <p>Andrew is cool.</p>
         <p>Hunter is cool.</p>
+        <p>Conner is a dork.</p>
         
     </body>
 </html:html>
