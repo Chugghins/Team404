@@ -22,6 +22,7 @@
         
         <h3><bean:message key="welcome.heading"/></h3>
         <p><bean:message key="welcome.message"/></p>
+        <p>Andrew is cool.</p>
         
     </body>
 </html:html>
