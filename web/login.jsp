@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Form</title>
+<title>Welcome to the Login Page!</title>
 </head>
 <body>
     <html:form action="/Login" focus="username">
