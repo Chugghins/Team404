@@ -11,9 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Success Page!</title>
+        <title>User Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Welcome Valued User!</h1>
     </body>
 </html>
