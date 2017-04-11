@@ -23,6 +23,8 @@
                 <forward name="success" path="/success.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
+            
+            
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
