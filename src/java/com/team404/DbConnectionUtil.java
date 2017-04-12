@@ -30,7 +30,7 @@ public class DbConnectionUtil {
             if (prop == null)
             {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                return DriverManager.getConnection("jdbc:mysql://localhost:3306/mynewdatabase", "root", "nbuser");
+                return DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "nbuser");
             }
             
             String driver = prop.getProperty("jdbc.driver");
@@ -51,12 +51,12 @@ public class DbConnectionUtil {
             } else
             {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                return DriverManager.getConnection("jdbc:mysql://localhost:3306/mynewdatabase", "root", "nbuser");
+                return DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "nbuser");
             }
         } catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e)
         {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/mynewdatabase", "root", "nbuser");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "nbuser");
         }
     }
 }

@@ -24,14 +24,14 @@ public class LoginDAO {
         try
             {
                 Statement st = con.createStatement();
-                ResultSet resultSet = st.executeQuery("SELECT * FROM Staff WHERE email = " + email + "AND password = " + password );
+                ResultSet resultSet = st.executeQuery("SELECT * FROM Staff WHERE email = '" + email + "' AND password = '" + password + "';" );
                 if(!resultSet.isBeforeFirst())
                 {
                     //Row not found
                     return "failure";
                 }
                 else{
-                    return "successAdmin";
+                    return "success";
                 }
             } 
         catch (SQLException ex)

@@ -37,7 +37,7 @@ public class LoginAction extends Action {
         String password = loginForm.getPassword();
         String[] isStaff = new String[2];
         isStaff = username.split("@");
-        if(isStaff[1].equals("salikastaff.com")){
+        if(isStaff[1].equals("sakilastaff.com")){
             //Check against staff table
             LoginDAO DAO = new LoginDAO();
             redirect = DAO.adminLogin(username, password);
