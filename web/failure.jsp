@@ -12,6 +12,6 @@
         <title>ERROR</title>
     </head>
     <body>
-        <h1>Either your username or password is incorrect. Click <a href="http://www.youtube.com">here</a>to try again!</h1>
+        <h1>Username or Password was incorrect. Click <a href="http://www.youtube.com">here</a>to try again!</h1>
     </body>
 </html>

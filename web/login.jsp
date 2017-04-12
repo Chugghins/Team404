@@ -16,10 +16,10 @@
                   background-attachment: fixed;
                   background-size: cover;
             }
-            h1 {color: yellowgreen; 
+            h1 {color: yellow; 
                 font-size: 300%;
             }
-            h2{color: yellowgreen;
+            h2{color: yellow;
                font-size: 275%;
             }
             p {color: white;
@@ -33,7 +33,6 @@
 
         <center><h1>Rick and Morty's Intergalactic Video Store!</h1></center></br>
         
-
         <center>
 
             <div style="position: static;">
@@ -48,7 +47,7 @@
                         <p></p>
                         <html:submit style="width: 100px; position: fixed;" value="Login"/></br>
                         <p></p>
-                        <p style="position: relative; left: 20px;"> Not a member? Click <a style="color: yellow;"href="https://www.youtube.com/watch?v=q6EoRBvdVPQ">here!</a></p>
+                        <p style="position: relative; left: 20px; color: yellow;" > Not a member? Click <a href="https://www.youtube.com/watch?v=q6EoRBvdVPQ">here!</a></p>
                     </html:form>
                         
                 </div>
