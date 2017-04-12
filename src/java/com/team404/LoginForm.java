@@ -57,5 +57,6 @@ public class LoginForm extends ActionForm
         this.password = null;
 
     }
-
+    
+    
 }

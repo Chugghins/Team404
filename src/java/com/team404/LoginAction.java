@@ -31,14 +31,25 @@ public class LoginAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
     HttpServletRequest request, HttpServletResponse response)
     throws Exception {
+        String redirect = "";
         LoginForm loginForm = (LoginForm)form;
-        if(loginForm.getUsername() == null || loginForm.getPassword() == null ||
-        !loginForm.getUsername().equalsIgnoreCase("andrew") || !loginForm.getPassword().equals("andrew")){
-            return mapping.findForward("failure");
+        String username = loginForm.getUsername();
+        String password = loginForm.getPassword();
+        String[] isStaff = new String[2];
+        isStaff = username.split("@");
+        if(isStaff[1].equals("salikastaff.com")){
+            //Check against staff table
+            LoginDAO DAO = new LoginDAO();
+            redirect = DAO.adminLogin(username, password);
         }
-        else
-        {
-            return mapping.findForward("success");
+        else{
+            //Check against customer table
+            LoginDAO DAO = new LoginDAO();
+            redirect = DAO.customerLogin(username, password);
         }
+        
+            return mapping.findForward(redirect);
+       
+        
     }
 }
