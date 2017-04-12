@@ -47,7 +47,7 @@
                         <p></p>
                         <html:submit style="width: 100px; position: fixed;" value="Login"/></br>
                         <p></p>
-                        <p style="position: relative; left: 20px; color: yellow;" > Not a member? Click <a href="https://www.youtube.com/watch?v=q6EoRBvdVPQ">here!</a></p>
+                        <p style="position: relative; left: 20px; color: yellow;" > Not a member? Click <a href="newCustomer.jsp">here!</a></p>
                     </html:form>
                         
                 </div>
