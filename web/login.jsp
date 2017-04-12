@@ -12,8 +12,9 @@
         <style>
             body {background-image: url(http://wallpapercave.com/wp/wp1822739.jpg); 
                   background-repeat: no-repeat;
-                  background-position: stretched;
+                  background-position: center;
                   background-attachment: fixed;
+                  background-size: cover;
             }
             h1 {color: yellowgreen; 
                 font-size: 300%;
