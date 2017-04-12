@@ -51,14 +51,14 @@ public class LoginDAO {
         try
             {
                 Statement st = con.createStatement();
-                ResultSet resultSet = st.executeQuery("SELECT * FROM Customer WHERE email = " + email + "AND password = " + password );
+                ResultSet resultSet = st.executeQuery("SELECT * FROM Customer WHERE email = '" + email + "' AND password = '" + password + "';");
                 if(!resultSet.isBeforeFirst())
                 {
                     //Row not found
                     return "failure";
                 }
                 else{
-                    return "successCustomer";
+                    return "success";
                 }
             } 
         catch (SQLException ex)

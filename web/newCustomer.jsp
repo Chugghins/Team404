@@ -1,6 +1,6 @@
 <%-- 
-    Document   : failure
-    Created on : Apr 10, 2017, 10:21:02 PM
+    Document   : newCustomer
+    Created on : Apr 12, 2017, 6:47:09 PM
     Author     : Andrew
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ERROR</title>
+        <title>New Customer</title>
     </head>
     <body>
-        <h1>Username or Password was incorrect. Click <a href="http://www.youtube.com">here</a>to try again!</h1>
-    </body>
+    <center><h1>New Customer Registration</h1></center>
+</body>
 </html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : failure
-    Created on : Apr 10, 2017, 10:21:02 PM
+    Document   : adminPage
+    Created on : Apr 12, 2017, 6:54:49 PM
     Author     : Andrew
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ERROR</title>
+        <title>Admin Page</title>
     </head>
     <body>
-        <h1>Username or Password was incorrect. Click <a href="http://www.youtube.com">here</a>to try again!</h1>
+        <h1>Welcome, Admin!</h1>
     </body>
 </html>
