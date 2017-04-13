@@ -26,7 +26,7 @@
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
             
-            <action name="Customer" path="/newCustomer" type="com.team404.Customer" scope="request" input="/newCustomer.jsp">
+            <action name="Customer" path="/newCustomer" type="com.team404.NewCustomerAction" scope="request" input="/newCustomer.jsp">
                 <forward name="success" path="/login.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
