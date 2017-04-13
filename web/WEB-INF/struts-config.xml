@@ -8,6 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="loginForm" type="com.team404.LoginForm"/>
+        <form-bean name="Customer" type="com.team404.Customer"/>
     </form-beans>
     
     <global-exceptions>
@@ -20,9 +21,16 @@
 
     <action-mappings>
             <action name="loginForm" path="/Login" type="com.team404.LoginAction" scope="request" input="/login.jsp">
-                <forward name="success" path="/success.jsp" redirect="true"/>
+                <forward name="customerSuccess" path="/customerPage.jsp" redirect="true"/>
+                <forward name="adminSuccess" path="/adminPage.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
+            
+            <action name="Customer" path="/newCustomer" type="com.team404.Customer" scope="request" input="/newCustomer.jsp">
+                <forward name="success" path="/login.jsp" redirect="true"/>
+                <forward name="failure" path="/failure.jsp" redirect="true"/>
+            </action>
+            
             
             
     </action-mappings>

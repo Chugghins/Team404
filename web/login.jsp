@@ -1,7 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 
 <html>
@@ -32,24 +35,32 @@
     <body>
 
         <center><h1>Rick and Morty's Intergalactic Video Store!</h1></center></br>
-        
+
         <center>
 
             <div style="position: static;">
-                <h2>Login Here!</h2></br>
-                
+
+                <h2>Login Here!</h2>
+
                 <div style="font-size: 120%; position: relative; right: 35px;">
-                    
-                    <html:form  style="color: white" action="/Login" focus="username">
-                        Username: <html:text property="username"/><br/>
-                        <p></p>
-                        Password: <html:password property="password"/><br/>
-                        <p></p>
+                    <table border="0">
+                        <html:form  style="color: white" action="/Login" focus="username">
+
+                            <tr>
+                                <td style="color: yellow;">Email:</td> 
+                                <td><html:text property="username"/></td><br/>
+                            </tr>
+                            <tr>
+                                <td style="color: yellow;">Password:</td> 
+                                <td><html:password property="password"/></td><br/>
+                            </tr>
+                        </table></br>
                         <html:submit style="width: 100px; position: fixed;" value="Login"/></br>
                         <p></p>
                         <p style="position: relative; left: 20px; color: yellow;" > Not a member? Click <a href="newCustomer.jsp">here!</a></p>
+
                     </html:form>
-                        
+
                 </div>
 
             </div>

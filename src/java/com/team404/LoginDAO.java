@@ -31,7 +31,7 @@ public class LoginDAO {
                     return "failure";
                 }
                 else{
-                    return "success";
+                    return "adminSuccess";
                 }
             } 
         catch (SQLException ex)
@@ -58,7 +58,7 @@ public class LoginDAO {
                     return "failure";
                 }
                 else{
-                    return "success";
+                    return "customerSuccess";
                 }
             } 
         catch (SQLException ex)
