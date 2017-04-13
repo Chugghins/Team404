@@ -5,18 +5,10 @@
  */
 package com.team404;
 
-/**
- *
- * @author Andrew
- */
-import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
 
-
-public class Customer extends ActionForm
+public class Admin extends ActionForm
 {
-
     private String first_name;
     private String last_name;
     private String email;
@@ -26,8 +18,6 @@ public class Customer extends ActionForm
     private String phone;
     private String password;
 
-
-    
     public String getFirst_name()
     {
         return first_name;
@@ -107,13 +97,7 @@ public class Customer extends ActionForm
     {
         this.password = password;
     }
-    
-    @Override
-    public void reset(ActionMapping mapping, HttpServletRequest request)
-    {
 
-        this.email = null;
-    }
     
     
 }

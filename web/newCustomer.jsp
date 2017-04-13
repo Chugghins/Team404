@@ -38,9 +38,22 @@
                                 <td><html:text property="email"/></td>
                             </tr>
                             <tr>
-                                <td>Address ID:</td>
-                                <td><html:text property="address_id"/></td>
+                                <td>Address :</td>
+                                <td><html:text property="address"/>
                             </tr>
+                            <tr>
+                                <td>City:</td>
+                                <td><html:text property="city"/></td>
+                            </tr>
+                            <tr>
+                                <td>Country:</td>
+                                <td><html:text property="country"/></td>    
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td><html:text property="phone"/></td>
+                            </tr>       
+                                
                             <tr>
                                 <td>Password:</td>
                                 <td><html:text property="password"/></td>
