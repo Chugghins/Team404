@@ -20,8 +20,43 @@ public class Customer extends ActionForm
     private String first_name;
     private String last_name;
     private String email;
-    private String address_id;
+    private String address;
+    private String city;
+    private String country;
+    private String phone;
     private String password;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getFirst_name()
     {
@@ -51,16 +86,6 @@ public class Customer extends ActionForm
     public void setEmail(String email)
     {
         this.email = email;
-    }
-
-    public String getAddress_id()
-    {
-        return address_id;
-    }
-
-    public void setAddress_id(String address_id)
-    {
-        this.address_id = address_id;
     }
 
     public String getPassword()
