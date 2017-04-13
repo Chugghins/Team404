@@ -21,6 +21,8 @@ public class Customer extends ActionForm
     private String country;
     private String phone;
     private String password;
+
+
     
     public String getFirst_name()
     {
