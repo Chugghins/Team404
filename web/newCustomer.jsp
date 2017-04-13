@@ -12,11 +12,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>New Customer</title>
-
+        <style>
+            body {background-image: url(https://ih0.redbubble.net/image.279406380.5366/flat,800x800,075,f.u3.jpg); 
+                  background-repeat: no-repeat;
+                  background-position: top right;
+                  background-attachment: fixed;
+                  background-size: 30%;
+                  background-color: white;
+            }
+            h1{
+                font-size: 250%;
+                font-family: fantasy;
+            }
+        </style>
     </head>
 
     <body>
-        <center><h1>New Customer Registration</h1></center>
+        <center><h1>Welcome New Customer!</h1></center>
 
         <div>
             <h2>Enter your info below:</h2>
@@ -62,7 +74,7 @@
                         <br></br>
                         </tr>
                         </tbody>
-                    </table>
+                    </table></br>
                     <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
                     <p></p>
                 </html:form>
