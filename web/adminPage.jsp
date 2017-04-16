@@ -1,5 +1,5 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 
@@ -9,20 +9,52 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>Admin Page</title>
+
+        <style>
+
+            header{
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 35px;
+                text-align: center;
+                
+            }
+
+            .footer{
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 20px;
+                text-align: right;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+        </style>
     </head>
-    
+
     <body>
-        
-        <center><h1>Welcome, Admin!</h1></center>
-        
+
+        <header>Welcome, Admin!</header>
+
         <div>
 
-                <p>Need to add a new Admin?</p>
-            <p style=" font-size: 125%;">Click <a href="newAdmin.jsp"> here!</a></p>
+            <h1>Need to add a new Admin?</h1>
+            <h2>Click <a href="newAdmin.jsp"> here!</a></h2>
 
         </div>
 
-           
+        <div class="footer"><a href=login.jsp>Team404</a></div>
     </body>
 </html>
