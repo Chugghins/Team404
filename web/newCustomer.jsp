@@ -1,5 +1,4 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 
@@ -10,76 +9,108 @@
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>New Customer</title>
+        
         <style>
+            
             body {background-image: url(https://ih0.redbubble.net/image.279406380.5366/flat,800x800,075,f.u3.jpg); 
                   background-repeat: no-repeat;
                   background-position: top right;
                   background-attachment: fixed;
                   background-size: 30%;
                   background-color: white;
+                  
             }
+
+            header{
+                padding: 21px;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 35px;
+                text-align: center;
+            }
+            
+            .footer{
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 20px;
+                text-align: right;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
             h1{
                 font-size: 250%;
                 font-family: fantasy;
             }
+            
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
         </style>
     </head>
 
     <body>
-        <center><h1>Welcome New Customer!</h1></center>
+        
+    <header>Welcome New Customer!</header>
+
+    <div>
+        <h2>Enter your info below:</h2>
 
         <div>
-            <h2>Enter your info below:</h2>
-
-            <div>
-                <table border = "0">
-                    <tbody>
-                        <html:form action="/newCustomer" focus="first_name">
-                            <tr>
-                                <td>First Name:</td> 
-                                <td><html:text property="first_name"/></td>
-                            </tr>
-                            <tr>
-                                <td>Last Name:</td>
-                                <td><html:text property="last_name"/></td>
-                            </tr>
-                            <tr>
-                                <td>Email:</td>
-                                <td><html:text property="email"/></td>
-                            </tr>
-                            <tr>
-                                <td>Address :</td>
-                                <td><html:text property="address"/>
-                            </tr>
-                            <tr>
-                                <td>City:</td>
-                                <td><html:text property="city"/></td>
-                            </tr>
-                            <tr>
-                                <td>Country:</td>
-                                <td><html:text property="country"/></td>    
-                            </tr>
-                            <tr>
-                                <td>Phone:</td>
-                                <td><html:text property="phone"/></td>
-                            </tr>       
-                                
-                            <tr>
-                                <td>Password:</td>
-                                <td><html:text property="password"/></td>
-                            </tr>
-                            
-                        <br></br>
+            <table>
+                <tbody>
+                    <html:form action="/newCustomer" focus="first_name">
+                        <tr>
+                            <td>First Name:</td> 
+                            <td><html:text property="first_name"/></td>
                         </tr>
-                        </tbody>
-                    </table></br>
-                    <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
-                    <p></p>
-                </html:form>
-            </div>
-        </div>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><html:text property="last_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><html:text property="email"/></td>
+                        </tr>
+                        <tr>
+                            <td>Address :</td>
+                            <td><html:text property="address"/>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td><html:text property="city"/></td>
+                        </tr>
+                        <tr>
+                            <td>Country:</td>
+                            <td><html:text property="country"/></td>    
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td><html:text property="phone"/></td>
+                        </tr>       
 
-    </body>
+                        <tr>
+                            <td>Password:</td>
+                            <td><html:text property="password"/></td>
+                        </tr>
+
+                    <br></br>
+                    </tr>
+                    </tbody>
+                </table></br>
+                <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
+                <p></p>
+            </html:form>
+        </div>
+    </div>
+    <div class="footer"><a href=login.jsp>Team404</a></div>
+</body>
 </html>

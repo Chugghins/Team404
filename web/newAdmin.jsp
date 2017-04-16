@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 
@@ -9,63 +9,94 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>New Admin Registration</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>New Admin Page!</title>
+
+        <style>
+            header{
+                padding: 21px;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 35px;
+                text-align: center;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+            .footer{
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 20px;
+                text-align: right;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            body{
+                width: 100%;
+                height: 100%;
+
+            }
+        </style>
+
     </head>
 
     <body>
 
-    <center><h1>New Admin Registration</h1></center>
+    <header>Welcome New Admin!</header>
 
-    <div>
-        <h2>Enter your info below:</h2>
-
+    <center>
         <div>
-            <table border = "0">
+            <h2>Enter your info below:</h2>
+
+            <table>
                 <tbody>
-                <html:form action="/newAdmin" focus="first_name">
-                    <tr>
-                        <td>First Name:</td> 
-                        <td><html:text property="first_name"/></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name:</td>
-                        <td><html:text property="last_name"/></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><html:text property="email"/></td>
-                    </tr>
-                    <tr>
-                        <td>Address :</td>
-                        <td><html:text property="address"/>
-                    </tr>
-                    <tr>
-                        <td>City:</td>
-                        <td><html:text property="city"/></td>
-                    </tr>
-                    <tr>
-                        <td>Country:</td>
-                        <td><html:text property="country"/></td>    
-                    </tr>
-                    <tr>
-                        <td>Phone:</td>
-                        <td><html:text property="phone"/></td>
-                    </tr>       
+                    <html:form action="/newAdmin" focus="first_name">
+                        <tr>
+                            <td>First Name:</td> 
+                            <td><html:text property="first_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><html:text property="last_name"/></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><html:text property="email"/></td>
+                        </tr>
+                        <tr>
+                            <td>Address :</td>
+                            <td><html:text property="address"/>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td><html:text property="city"/></td>
+                        </tr>
+                        <tr>
+                            <td>Country:</td>
+                            <td><html:text property="country"/></td>    
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td><html:text property="phone"/></td>
+                        </tr>       
 
-                    <tr>
-                        <td>Password:</td>
-                        <td><html:text property="password"/></td>
-                    </tr>
-
-                    <br></br>
-                    </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><html:text property="password"/></td>
+                        </tr>
                     </tbody>
-            </table>
-            <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
-            <p></p>
+                </table></br>
+
+                <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
+
             </html:form>
         </div>
-    </div>
-
+    </center>
+    <div class="footer">Team404</div>
 </body>
+
 </html>
