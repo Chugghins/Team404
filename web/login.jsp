@@ -29,7 +29,7 @@
                 text-align: center;
 
             }
-
+            
             .footer{
                 padding: 1rem;
                 font-family: fantasy;
@@ -41,29 +41,32 @@
                 bottom: 0;
                 left: 0;
             }
+            
             h1 {color: yellow; 
-                font-size: 300%;
-               
+                font-size: 300%;  
             }
+            
             h2{color: yellow;
                font-size: 275%;
                position: relative;
             }
+            
             p {color: white;
                font-size: 125%;
             }
-
+            
             a.one{
                 text-decoration: none;
             }
-
-            .container{
-                position: relative;
-
-            }
             
-            html:form{
+            .container{
+                width: 350px;
+                border: 3px solid yellow;
+                border-radius: 12px;
+                padding: 25px;
+                margin: 25px;
                 position: relative;
+                top: auto;
             }
 
         </style>
@@ -82,12 +85,12 @@
             <table>
                 <html:form  style="color: white;" action="/Login" focus="username">
                     <tr>
-                        <td style="color: yellow;">Email:</td> 
-                        <td><html:text property="username"/></td><br/>
+                        <td style="color: yellow; font-size: 18px;">Email:</td> 
+                        <td><html:text property="username"/></td>
                     </tr>
 
                     <tr>
-                        <td style="color: yellow;">Password:</td> 
+                        <td style="color: yellow; font-size: 18px;">Password:</td> 
                         <td><html:password property="password"/></td><br/>
                     </tr>
 
