@@ -13,6 +13,7 @@
         <title>Welcome to the Login Page!</title>
 
         <style>
+
             body {background-image: url(http://wallpapercave.com/wp/wp1822739.jpg); 
                   background-repeat: no-repeat;
                   background-position: center;
@@ -29,7 +30,7 @@
                 text-align: center;
 
             }
-            
+
             .footer{
                 padding: 1rem;
                 font-family: fantasy;
@@ -41,24 +42,24 @@
                 bottom: 0;
                 left: 0;
             }
-            
+
             h1 {color: yellow; 
                 font-size: 300%;  
             }
-            
+
             h2{color: yellow;
                font-size: 275%;
                position: relative;
             }
-            
+
             p {color: white;
                font-size: 125%;
             }
-            
+
             a.one{
                 text-decoration: none;
             }
-            
+
             .container{
                 width: 350px;
                 border: 3px solid yellow;

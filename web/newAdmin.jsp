@@ -40,6 +40,9 @@
                 height: 100%;
 
             }
+            .one{
+                text-decoration: none;
+            }
         </style>
 
     </head>
@@ -96,7 +99,7 @@
             </html:form>
         </div>
     </center>
-    <div class="footer">Team404</div>
+    <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 </body>
 
 </html>
