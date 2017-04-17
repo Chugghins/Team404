@@ -36,7 +36,7 @@
 
             }
 
-            a{
+            .one{
                 text-decoration: none;
                 color: black;
             }
@@ -55,6 +55,6 @@
 
         </div>
 
-        <div class="footer"><a href=login.jsp>Team404</a></div>
+        <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
     </body>
 </html>
