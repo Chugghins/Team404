@@ -9,28 +9,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title>ERROR</title>
-        
+        <title>Customer Page</title>
         <style>
-            h1{
-                font-size: 300%;
-            }
-
-            h2{
-                font-size: 200%;
-            }
-
-            p{
-                font-size: 150%;
-            }
-            
-            a{
-                text-decoration: none;
-                color: black;
-            }
             
             header{
-                
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 35px;
+                text-align: center;
+                position: relative;
             }
             
             .footer{
@@ -45,25 +33,21 @@
                 left: 0;
             }
             
-            body{
-                background-color: lightcyan;
+            a{
+                text-decoration: none;
+                color: black;
             }
+            
         </style>
     </head>
-    <body>
-        
-        
-    <header>Failure Page</header>
     
-        <div>
-            <h1><strong>Uh-Oh!</strong></h1>
-
-            <h2>Either your Username or Password was incorrect...</h2>
-
-            <p><strong>Click <a href=login.jsp>here</a> to try again!</strong></p>
-
-        </div>
+    <body>  
         
-        <div class="footer"><a href=login.jsp>Team404</a></div>
+    <header>Welcome, Customer!</header>
+    
+    <h1>Here's a bunch of stuff that we're going to fill the rest of this page with</h1>
+    
+    <div class="footer"><a href=login.jsp>Team404</a></div>
+    
     </body>
 </html>
