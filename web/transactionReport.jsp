@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title>Revenue Report Page</title>
+        <title>Transaction Report Page</title>
 
         <style>
 
@@ -46,11 +46,11 @@
 
     <body>
 
-        <header>Revenue Report!</header>
+        <header>Transaction Report!</header>
 
         <div>
 
-            <h1>Revenue Report Stuff</h1>
+            <h1>Transaction Report Stuff</h1>
             
 
         </div>
