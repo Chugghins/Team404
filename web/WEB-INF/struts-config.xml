@@ -32,7 +32,7 @@
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
             
-            <action name="Admin" path="/newAdmin" type="com.team404.Admin" scope="request" input="/newAdmin.jsp">
+            <action name="Admin" path="/newAdmin" type="com.team404.NewAdminAction" scope="request" input="/newAdmin.jsp">
                 <forward name="success" path="/adminPage.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>

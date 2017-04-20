@@ -110,6 +110,16 @@ public class Customer extends ActionForm
 
         this.email = null;
     }
+    public boolean validateEmail(){
+        //Counts how many @ characters are in the email
+        int count = email.length() - email.replace("@", "").length();
+        if(count != 1)//If none or more than one @ symbol
+        {
+            return false;
+        }
+        
+       return true;
+    }
     
     
 }

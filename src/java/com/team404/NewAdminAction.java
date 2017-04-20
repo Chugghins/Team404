@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Chugg1
  */
-public class NewCustomerAction extends org.apache.struts.action.Action {
+public class NewAdminAction extends org.apache.struts.action.Action {
 
     /**
      * This is the action called from the Struts framework.
@@ -33,12 +33,13 @@ public class NewCustomerAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         //Adds entered data as row in Customer table
-        Customer cForm = (Customer) form;
+        Admin aForm = (Admin) form;
         RegisterDAO DAO = new RegisterDAO();
-        //Tells model to save entered data if data is valid
-        if (DAO.isCustEmailAval(cForm) == true && cForm.validateEmail() == true) 
+
+            //Tells model to save entered data if data is valid
+        if (DAO.isAdminEmailAval(aForm) == true && aForm.validateEmail() == true) 
         {
-            DAO.newCustomer(cForm);
+            DAO.newAdmin(aForm);
 
             return mapping.findForward("success");
         }
