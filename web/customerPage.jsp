@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>Customer Page</title>
         <style>
-            
+
             header{
                 padding: 1rem;
                 background-color: lightgray;
@@ -20,7 +20,7 @@
                 text-align: center;
                 position: relative;
             }
-            
+
             .footer{
                 padding: 1rem;
                 background-color: lightgray;
@@ -32,22 +32,24 @@
                 bottom: 0;
                 left: 0;
             }
-            
+
             a{
                 text-decoration: none;
                 color: black;
             }
-            
+
         </style>
     </head>
-    
+
     <body>  
-        
+
     <header>Welcome, Customer!</header>
-    
+
     <h1>Here's a bunch of stuff that we're going to fill the rest of this page with</h1>
-    
+
+    <p><a href="searchPage.jsp">Search</a></p>
+
     <div class="footer"><a href=login.jsp>Team404</a></div>
-    
-    </body>
+
+</body>
 </html>
