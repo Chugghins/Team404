@@ -20,7 +20,7 @@
                 font-family: fantasy;
                 font-size: 35px;
                 text-align: center;
-                
+
             }
 
             .footer{
@@ -41,20 +41,60 @@
                 color: black;
             }
 
+            .container{
+                width: 500px;
+                border: 3px solid black;
+                border-radius: 12px;
+                padding: 25px;
+                margin: 25px;
+                position: relative;
+                top: auto;
+            }
+            .container2{
+                width: 500px;
+                border: 3px solid black;
+                border-radius: 12px;
+                padding: 20px;
+                margin: 25px;
+                position: relative;
+                top: auto;
+                
+            }
+
+            h1{
+
+            }
+
         </style>
     </head>
 
     <body>
 
-        <header>Welcome, Admin!</header>
+    <header>Welcome, Admin!</header>
 
-        <div>
 
-            <h1>Need to add a new Admin?</h1>
-            <h2>Click <a href="newAdmin.jsp"> here!</a></h2>
+    <div class="container">
 
-        </div>
 
-        <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
-    </body>
+        <h1>Need to add a new Admin?</h1>
+
+        <center><h2>Click <a href="newAdmin.jsp"> here!</a></h2></center>
+    </div>
+    
+    
+    <div class="container2">
+        <center><h1>Reports</h1></center>
+        <a href="customerReport.jsp"><button>Customer Report</button></a>
+        <a href="inventoryReport.jsp"><button>Inventory Report</button></a>
+        <a href="revenueReport.jsp"><button>Revenue Report</button></a>
+        <p></p>
+        <a href="transactionReport.jsp"><button>Transaction Report</button></a>
+
+
+    </div>
+
+
+    <div class="footer"> <a class="one" href=login.jsp>Team404</a></div>
+
+</body>
 </html>

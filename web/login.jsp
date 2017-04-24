@@ -98,7 +98,7 @@
                 </table></br>
                 <html:submit style="width: 100px;" value="Login"/></br>
                 <p></p>
-                <p style="color: yellow;" > Not a member? Click <a href="newCustomer.jsp">here!</a></p>
+                <p style="color: yellow;" > Not a Member? Click <a href="newCustomer.jsp">Here!</a></p>
 
             </html:form>
         </div>
