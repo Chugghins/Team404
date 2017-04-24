@@ -70,6 +70,8 @@
                 top: auto;
             }
 
+
+
         </style>
     </head>
 
@@ -81,21 +83,30 @@
     <center>
         <div class="container">
 
-            <h2>Login Here!</h2>
+            <h1>Login Here!</h1>
+            
+            <html:form  style="color: white;" action="/Login" focus="username">
 
-            <table>
-                <html:form  style="color: white;" action="/Login" focus="username">
-                    <tr>
-                        <td style="color: yellow; font-size: 18px;">Email:</td> 
-                        <td><html:text property="username"/></td>
+                <table>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <html:errors/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: yellow; font-size: 18px;">Email:</td> 
+                            <td><html:text property="username" value=""/></td>
+                        </tr>
+
+                        <tr>
+                            <td style="color: yellow; font-size: 18px;">Password:</td> 
+                            <td><html:password property="password" value=""/></td><br/>
                     </tr>
-
-                    <tr>
-                        <td style="color: yellow; font-size: 18px;">Password:</td> 
-                        <td><html:password property="password"/></td><br/>
-                    </tr>
-
+                    </tbody>
                 </table></br>
+
                 <html:submit style="width: 100px;" value="Login"/></br>
                 <p></p>
                 <p style="color: yellow;" > Not a Member? Click <a href="newCustomer.jsp">Here!</a></p>

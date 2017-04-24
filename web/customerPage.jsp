@@ -47,7 +47,7 @@
 
     <h1>Here's a bunch of stuff that we're going to fill the rest of this page with</h1>
 
-    <p><a href="searchPage.jsp">Search</a></p>
+    <a href="searchPage.jsp"><button>Search</button></a>
 
     <div class="footer"><a href=login.jsp>Team404</a></div>
 
