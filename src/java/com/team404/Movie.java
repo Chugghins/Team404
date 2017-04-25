@@ -18,9 +18,11 @@ public class Movie {
     private double rental_rate;
     private double replacement_cost;
     private String rating;
-    private String actor_name;
+    private String actor;
+    private String genre;
     
-    public Movie(int f_id, String t, int r_year, int l_id, int r_duration, double r_rate, double r_cost, String rting, String a_name, String gnre)
+    public Movie(int f_id, String t, int r_year, int l_id, int r_duration, 
+            double r_rate, double r_cost, String rting, String a_name, String gnre)
     {
         film_id = f_id;
         title = t;
@@ -30,7 +32,7 @@ public class Movie {
         rental_rate = r_rate;
         replacement_cost = r_cost;
         rating = rting;
-        actor_name = a_name;
+        actor = a_name;
         genre = gnre;
     }
     public Movie(){
@@ -101,12 +103,12 @@ public class Movie {
         this.rating = rating;
     }
     
-        public String getActor_name() {
-        return actor_name;
+        public String getActor() {
+        return actor;
     }
 
-    public void setActor_name(String actor_name) {
-        this.actor_name = actor_name;
+    public void setActor(String actor_name) {
+        this.actor = actor_name;
     }
 
     public String getGenre() {
@@ -116,7 +118,7 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    private String genre;
+
     
     
 }

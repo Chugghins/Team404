@@ -35,9 +35,9 @@ public class SearchAction extends org.apache.struts.action.Action{
             throws Exception
     {
         SearchDAO DAO = new SearchDAO();
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies = DAO.search();
-        request.setAttribute("movies", movies);
+        ArrayList<Movie> movie = new ArrayList<>();
+        movie = DAO.search();
+        request.getSession().setAttribute("movie", movie);
         return mapping.findForward(SUCCESS);
     }
 }
