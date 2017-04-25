@@ -56,9 +56,17 @@
     <body>
 
     <header>Search Page!</header>
+    <script type="text/javascript">
 
-    <h1>Search:</h1>
-    <table width="100%" border="1" id="movies">
+
+        $(document).ready(function () {
+            $('#movie').DataTable();
+        });
+
+
+    </script>
+
+    <table width="100%" border="1" id="movie">
         <thead>
             <tr>
                 <th>Film ID</th>
@@ -74,7 +82,7 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${movies}" var="movie">
+            <c:forEach items="${movie}" var="movie">
                 <tr>
                     <td><c:out value="${movie.film_id}" /></td>
                     <td><c:out value="${movie.title}" /></td>
@@ -91,15 +99,7 @@
         </tbody>
     </table>
 
-    <script type="text/javascript" class="init">
 
-
-        $(document).ready(function () {
-            $('#movies').DataTable();
-        });
-
-
-    </script>
 
     <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 </body>
