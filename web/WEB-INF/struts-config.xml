@@ -10,6 +10,7 @@
         <form-bean name="loginForm" type="com.team404.LoginForm"/>
         <form-bean name="Customer" type="com.team404.Customer"/>
         <form-bean name="Admin" type="com.team404.Admin"/>
+        <form-bean name="Movie" type="com.team404.Movie"/>
     </form-beans>
     
     <global-exceptions>
@@ -36,6 +37,9 @@
                 <forward name="success" path="/adminPage.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>        
+            <action name="Movie" path="/search" type="com.team404.SearchAction" scope="request" input="/searchPage.jsp">
+                <forward name="success" path="/searchPage.jsp" redirect="true"/>
+            </action>
             
     </action-mappings>
     

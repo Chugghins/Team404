@@ -46,8 +46,9 @@
     <header>Welcome, Customer!</header>
 
     <h1>Here's a bunch of stuff that we're going to fill the rest of this page with</h1>
-
-    <a href="searchPage.jsp"><button>Search</button></a>
+    <html:form action="/search">
+        <html:submit value="Search For Movies"/>
+    </html:form>  
 
     <div class="footer"><a href=login.jsp>Team404</a></div>
 
