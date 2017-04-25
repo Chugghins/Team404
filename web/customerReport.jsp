@@ -51,6 +51,44 @@
         <div>
 
             <h1>Customer Report Stuff</h1>
+            <table width="100%" border="1" style="text-align: center">
+
+            <tr>
+                <th></th>
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Join Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td><c:out value=""/></td>
+                    <td><c:out value="${product.customer_id}"/></td>
+                    <td><c:out value="${product.product_id}"/></td>
+                    <td><c:out value="${product.quantity}"/></td>
+                    <td><c:out value="${product.shipping_cost}"/></td>
+                    <td><c:out value="${product.sales_date}"/></td>
+                    <td><c:out value="${product.shipping_date}"/></td>
+                    <td><c:url var="url1" value="/goToUpdate.do">
+                            <c:param name="id" value="${product.order_num}"/>
+                        </c:url>
+                        <a href="${fn:escapeXml(url1)}">Update</a>
+                    </td>
+                    <td><c:url var="url2" value="/delete.do">
+                            <c:param name="id" value="${product.order_num}"/>
+                        </c:url>
+                        <a href="${fn:escapeXml(url2)}">Delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <html:form action="/add">
+            <html:submit value="Add"/>
+        </html:form>
             
 
         </div>
