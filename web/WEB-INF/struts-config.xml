@@ -42,6 +42,9 @@
             <action input="/customerPage.jsp" name="Movie" path="/search" scope="session" type="com.team404.SearchAction">
                 <forward name="success" path="/searchPage.jsp" redirect="true" />
             </action>
+            <action input="/searchPage.jsp" name="Movie" path="/addToCart" scope="request" type="com.team404.AddCartAction">
+                <forward name="success" path="/searchPage.jsp" redirect="true" />
+            </action>
 
                                 
     </action-mappings>

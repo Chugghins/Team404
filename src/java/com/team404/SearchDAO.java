@@ -24,25 +24,19 @@ public class SearchDAO {
 
         try {
             Statement st = con.createStatement();
-            ResultSet resultSet = st.executeQuery("Select f.film_id, title, release_year, language_id, rental_duration, "
-                    + "rental_rate, replacement_cost, rating, first_name, last_name, name From Film as f JOIN film_category As fc "
-                    + "ON f.film_id = fc.film_id JOIN category As c ON fc.category_id = c.category_id "
-                    + "JOIN film_actor As fa ON f.film_id = fa.film_id JOIN actor As a "
-                    + "ON a.actor_id = fa.actor_id;");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM nicer_but_slower_film_list");
 
             while (resultSet.next()) {
-                int film_id = resultSet.getInt("film_id");
+                int film_id = resultSet.getInt("FID");
                 String title = resultSet.getString("title");
-                int release_year = resultSet.getInt("release_year");
-                int language_id = resultSet.getInt("language_id");
-                int rental_duration = resultSet.getInt("rental_duration");
-                double rental_rate = resultSet.getDouble("rental_rate");
-                double replacement_cost = resultSet.getDouble("replacement_cost");
+                String description = resultSet.getString("description");
+                String genre = resultSet.getString("category");
+                double rental_rate = resultSet.getDouble("price");
+                int length = resultSet.getInt("length");
                 String rating = resultSet.getString("rating");
-                String actor = resultSet.getString("first_name") + " " + resultSet.getString("last_name");
-                String genre = resultSet.getString("name");
-
-                Movie m = new Movie(film_id, title, release_year, language_id, rental_duration, rental_rate, replacement_cost, rating, actor, genre);
+                String actor = resultSet.getString("actors");
+                
+                Movie m = new Movie(film_id, title, description, genre, rental_rate, length, rating, actor);
                 movies.add(m);
 
             }
