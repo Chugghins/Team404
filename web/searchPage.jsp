@@ -17,36 +17,36 @@
         </script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
-        
+
         <title>Search Page</title>
 
         <style>
+
+            .one{
+                text-decoration: none;
+                color: black;
+                text-align: right;
+
+                font-size: 25px;
+            }
 
             header{
                 padding: 1rem;
                 background-color: lightgray;
                 font-family: fantasy;
-                font-size: 35px;
-                text-align: center;
+
 
             }
 
-            .footer{
-                padding: 1rem;
-                background-color: lightgray;
+            .hd1{     
+                text-align: center;
+                font-weight: bold;
                 font-family: fantasy;
-                font-size: 20px;
-                text-align: right;
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-
             }
 
             .one{
+                font-size: 30px;
                 text-decoration: none;
-                color: black;
             }
 
         </style>
@@ -55,15 +55,17 @@
 
     <body>
 
-    <header>Search Page!</header>
-    <script type="text/javascript">
+    <header>   
+        <h1 class="hd1"> <a class="one" href=login.jsp>Search Page!</a></h1>       
+    </header>
 
+
+
+    <script type="text/javascript">
 
         $(document).ready(function () {
             $('#movie').DataTable();
         });
-
-
     </script>
 
     <table width="100%" border="1" id="movie">
@@ -99,8 +101,5 @@
         </tbody>
     </table>
 
-
-
-    <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 </body>
 </html>
