@@ -63,8 +63,7 @@
             <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
         </html:form>
             
-        <div class="content">
-            <div class="content-inside">
+
                 <header>Search Page!</header>
                 <script type="text/javascript">
 
