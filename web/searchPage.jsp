@@ -22,31 +22,34 @@
 
         <style>
 
-            .one{
-                text-decoration: none;
-                color: black;
-                text-align: right;
-
-                font-size: 25px;
-            }
-
             header{
+                 margin-top: 0;
+
                 padding: 1rem;
                 background-color: lightgray;
                 font-family: fantasy;
-
-
+                font-size: 35px;
+                text-align: center;
+                align-items: center;
             }
 
-            .hd1{     
-                text-align: center;
-                font-weight: bold;
+            .footer{
+                padding: 1rem;
+                background-color: lightgray;
                 font-family: fantasy;
+                font-size: 20px;
+                text-align: right;
+                right: 0;
+                bottom: 0;
+                left: 0;
             }
 
             .one{
-                font-size: 30px;
                 text-decoration: none;
+                color: black;
+            }
+            a.marginLeft {
+                margin-left: 1em;
             }
 
         </style>
@@ -54,52 +57,56 @@
     </head>
 
     <body>
+        <html:form action="/addToCart" >
+            Film ID:
+            <input id="addToCart" type="number" name="addToCart" required min="0"/>
+            <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
+        </html:form>
+            
+        <div class="content">
+            <div class="content-inside">
+                <header>Search Page!</header>
+                <script type="text/javascript">
 
-    <header>   
-        <h1 class="hd1"> <a class="one" href=login.jsp>Search Page!</a></h1>       
-    </header>
+                    $(document).ready(function () {
+                        $('#movie').DataTable();
+                    });
+
+                </script>
+
+                <table width="100%" border="1" id="movie">
+                    <thead>
+                        <tr>
+                            <th>Film ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Genre</th>
+                            <th>Rental Rate</th>
+                            <th>Film Length</th>
+                            <th>Rating</th>
+                            <th>Actors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${movie}" var="movie">
+                            <tr>
+                                <td><c:out value="${movie.film_id}" /></td>
+                                <td><c:out value="${movie.title}" /></td>
+                                <td><c:out value="${movie.description}" /></td>
+                                <td><c:out value="${movie.genre}" /></td>
+                                <td><c:out value="${movie.rental_rate}" /></td>
+                                <td><c:out value="${movie.length}" /></td>
+                                <td><c:out value="${movie.rating}" /></td>
+                                <td><c:out value="${movie.actor}" /></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
 
 
 
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('#movie').DataTable();
-        });
-    </script>
+                </body>
+                <div class="footer"><a href=login.jsp>Team404</a></div>
 
-    <table width="100%" border="1" id="movie">
-        <thead>
-            <tr>
-                <th>Film ID</th>
-                <th>Title</th>
-                <th>Release Year</th>
-                <th>Language ID</th>
-                <th>Rental Duration</th>
-                <th>Rental Rate</th>
-                <th>Replacement Cost</th>
-                <th>Rating</th>
-                <th>Actor</th>
-                <th>Genre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${movie}" var="movie">
-                <tr>
-                    <td><c:out value="${movie.film_id}" /></td>
-                    <td><c:out value="${movie.title}" /></td>
-                    <td><c:out value="${movie.release_year}" /></td>
-                    <td><c:out value="${movie.language_id}" /></td>
-                    <td><c:out value="${movie.rental_duration}" /></td>
-                    <td><c:out value="${movie.rental_rate}" /></td>
-                    <td><c:out value="${movie.replacement_cost}" /></td>
-                    <td><c:out value="${movie.rating}" /></td>
-                    <td><c:out value="${movie.actor}" /></td>
-                    <td><c:out value="${movie.genre}" /></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-
-</body>
-</html>
+                </html>
