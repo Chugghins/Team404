@@ -9,10 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cart Page</title>
     </head>
     <body>
         <!-- Make two Tables, one for Cart one for Wishlist populate where customer_id equals-->
         <h1>Hello World!</h1>
+        
+        
     </body>
 </html>
