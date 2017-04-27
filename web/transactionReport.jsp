@@ -55,7 +55,7 @@
 
     <body>
 
-    <header>Transaction Report!</header>
+    <header><a  style="text-decoration: none;" href=adminPage.jsp>Transaction Report!</a></header>
 
     <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/sakila"

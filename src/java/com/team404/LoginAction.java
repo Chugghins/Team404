@@ -16,7 +16,8 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Andrew
  */
-public class LoginAction extends Action {
+public class LoginAction extends Action
+{
 
     /**
      *
@@ -29,27 +30,30 @@ public class LoginAction extends Action {
      */
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
-    HttpServletRequest request, HttpServletResponse response)
-    throws Exception {
-        String redirect = "";
-        LoginForm loginForm = (LoginForm)form;
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        String redirect = "failure";
+        LoginForm loginForm = (LoginForm) form;
         String username = loginForm.getUsername();
         String password = loginForm.getPassword();
-        String[] isStaff = new String[2];
-        isStaff = username.split("@");
-        if(isStaff[1].equals("sakilastaff.com")){
-            //Check against staff table
-            LoginDAO DAO = new LoginDAO();
-            redirect = DAO.adminLogin(username, password);
+        if (!username.equals("") && username.contains("@"))
+        {
+            String[] isStaff = new String[2];
+            isStaff = username.split("@");
+            if (isStaff[1].equals("sakilastaff.com"))
+            {
+                //Check against staff table
+                LoginDAO DAO = new LoginDAO();
+                redirect = DAO.adminLogin(username, password);
+            } else
+            {
+                //Check against customer table
+                LoginDAO DAO = new LoginDAO();
+                redirect = DAO.customerLogin(username, password);
+            }
         }
-        else{
-            //Check against customer table
-            LoginDAO DAO = new LoginDAO();
-            redirect = DAO.customerLogin(username, password);
-        }
-        
-            return mapping.findForward(redirect);
-       
-        
+        return mapping.findForward(redirect);
+
     }
 }

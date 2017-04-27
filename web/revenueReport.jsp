@@ -54,7 +54,7 @@
 
     <body>
 
-    <header>Revenue Report!</header>
+    <header><a  style="text-decoration: none;" href=adminPage.jsp>Revenue Report!</a></header>
 
     <div>
 
