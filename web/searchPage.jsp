@@ -51,59 +51,70 @@
             a.marginLeft {
                 margin-left: 1em;
             }
+            form {
+                display: inline-block; 
+            }
 
         </style>
 
     </head>
 
     <body>
-        <html:form action="/addToCart" >
-            Film ID:
-            <input id="addToCart" type="number" name="addToCart" required min="0"/>
-            <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
-        </html:form>
+    <header>Search Page!</header>
+    <p>
+    <html:form action="/addToCart" >
+        Film ID:
+        <input id="addToCart" type="number" name="addToCart" required min="0"/>
+        <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
+    </html:form>
+         &nbsp&nbsp&nbsp&nbsp
+    <html:form action="/addToWishlist" >
+        Film ID:
+        <input id="addToWishlist" type="number" name="addToWishlist" required min="0"/>
+        <button type="submit" value="submitToWishlist" name="submitToWishlist">Add to Wishlist</button>
+    </html:form>
+    </p>
+    <p></p>
 
-                <header>Search Page!</header>
-                
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#movie').DataTable();
-                    });
-                </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#movie').DataTable();
+        });
+    </script>
 
-                <table width="100%" border="1" id="movie">
-                    <thead>
-                        <tr>
-                            <th>Film ID</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Genre</th>
-                            <th>Rental Rate</th>
-                            <th>Film Length</th>
-                            <th>Rating</th>
-                            <th>Actors</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${movie}" var="movie">
-                            <tr>
-                                <td><c:out value="${movie.film_id}" /></td>
-                                <td><c:out value="${movie.title}" /></td>
-                                <td><c:out value="${movie.description}" /></td>
-                                <td><c:out value="${movie.genre}" /></td>
-                                <td><c:out value="${movie.rental_rate}" /></td>
-                                <td><c:out value="${movie.length}" /></td>
-                                <td><c:out value="${movie.rating}" /></td>
-                                <td><c:out value="${movie.actor}" /></td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+    <table width="100%" border="1" id="movie">
+        <thead>
+            <tr>
+                <th>Film ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Genre</th>
+                <th>Rental Rate</th>
+                <th>Film Length</th>
+                <th>Rating</th>
+                <th>Actors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${movie}" var="movie">
+                <tr>
+                    <td><c:out value="${movie.film_id}" /></td>
+                    <td><c:out value="${movie.title}" /></td>
+                    <td><c:out value="${movie.description}" /></td>
+                    <td><c:out value="${movie.genre}" /></td>
+                    <td><c:out value="${movie.rental_rate}" /></td>
+                    <td><c:out value="${movie.length}" /></td>
+                    <td><c:out value="${movie.rating}" /></td>
+                    <td><c:out value="${movie.actor}" /></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 
 
 
 
-                </body>
-                <div class="footer"><a href=login.jsp>Team404</a></div>
+</body>
+<div class="footer"><a href=login.jsp>Team404</a></div>
 
-                </html>
+</html>

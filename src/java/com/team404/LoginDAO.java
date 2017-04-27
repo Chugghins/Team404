@@ -16,59 +16,67 @@ import java.sql.Statement;
  */
 public class LoginDAO {
 
-    public String adminLogin(String email, String password ) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+    public String adminLogin(String email, String password) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         DbConnectionUtil db = new DbConnectionUtil();
         Connection con = db.getConnection();
 
-        try
-            {
-                Statement st = con.createStatement();
-                ResultSet resultSet = st.executeQuery("SELECT * FROM Staff WHERE email = '" + email + "' AND password = '" + password + "';" );
-                if(!resultSet.isBeforeFirst())
-                {
-                    //Row not found
-                    return "failure";
-                }
-                else{
-                    return "adminSuccess";
-                }
-            } 
-        catch (SQLException ex)
-            {
-                System.out.println(ex);
+        try {
+            Statement st = con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM Staff WHERE email = '" + email + "' AND password = '" + password + "';");
+            if (!resultSet.isBeforeFirst()) {
+                //Row not found
+                return "failure";
+            } else {
+                return "adminSuccess";
             }
-        
-            con.close();
-            return "failure";
-        
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        con.close();
+        return "failure";
+
     }
-    public String customerLogin(String email, String password ) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+
+    public String customerLogin(String email, String password) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         DbConnectionUtil db = new DbConnectionUtil();
         Connection con = db.getConnection();
 
-        try
-            {
-                Statement st = con.createStatement();
-                ResultSet resultSet = st.executeQuery("SELECT * FROM Customer WHERE email = '" + email 
-                        + "' AND password = '" + password + "';");
-                if(!resultSet.isBeforeFirst())
-                {
-                    //Row not found
-                    return "failure";
-                }
-                else{
-                    return "customerSuccess";
-                }
-            } 
-        catch (SQLException ex)
-            {
-                System.out.println(ex);
+        try {
+            Statement st = con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM Customer WHERE email = '" + email
+                    + "' AND password = '" + password + "';");
+            if (!resultSet.isBeforeFirst()) {
+                //Row not found
+                return "failure";
+            } else {
+                return "customerSuccess";
             }
-        
-            con.close();
-            return "failure";
-        
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        con.close();
+        return "failure";
+
+    }
+
+    public int getCust_id(String email) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        DbConnectionUtil db = new DbConnectionUtil();
+        Connection con = db.getConnection();
+        int cust_id = 0;
+        try {
+            Statement st = con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT customer_id FROM Customer WHERE email = '" + email + " LIMIT 1;");
+            cust_id = resultSet.getInt("customer_id");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        con.close();
+        return cust_id;
+
     }
 }

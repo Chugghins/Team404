@@ -51,6 +51,8 @@ public class LoginAction extends Action
                 //Check against customer table
                 LoginDAO DAO = new LoginDAO();
                 redirect = DAO.customerLogin(username, password);
+                int cust_id = DAO.getCust_id(username);
+                request.getSession().setAttribute("cust_id", cust_id);
             }
         }
         return mapping.findForward(redirect);
