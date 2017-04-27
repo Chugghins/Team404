@@ -160,7 +160,7 @@ public class RegisterDAO {
                 stNewCity.executeUpdate("INSERT INTO city(city, country_id) VALUES ('"
                         + a.getCity() + "','"
                         + country_id + "')");
-                resultCity_id = stCountryID.executeQuery("SELECT city_id FROM city WHERE city = '"
+                resultCity_id = stCityID.executeQuery("SELECT city_id FROM city WHERE city = '"
                         + a.getCity() + "';");
                 stNewCity.close();
             }
