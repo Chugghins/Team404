@@ -88,6 +88,11 @@
         <set-property property="moduleAware" value="true" />
     </plug-in>
     
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn" >
+	<set-property property="pathnames"
+	value="/WEB-INF/validator-rules.xml, /WEB-INF/validator-user.xml"/>
+    </plug-in>
+    
     <!-- ========================= Validator plugin ================================= -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
         <set-property
