@@ -16,33 +16,74 @@ import java.sql.Statement;
  */
 public class CartDAO {
 
-    public void adminLogin(int film_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-
-        DbConnectionUtil db = new DbConnectionUtil();
-        Connection con = db.getConnection();
+    public void addToCart(int film_id, int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         try {
+            DbConnectionUtil db = new DbConnectionUtil();
+            Connection con = db.getConnection();
 
-            if (con != null) {
-                System.out.println("Connection Success");
-            }
-            Statement st = con.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT title, release_year, language_id, rental_duration, "
-                    + "rental_rate, replacement_cost, rating FROM film "
-                    + "WHERE film_id = " + film_id + ";");
+            Statement querySt = con.createStatement();
+            ResultSet resultSet = querySt.executeQuery("SELECT * FROM film WHERE film_id = " + film_id);
+
             String title = resultSet.getString("title");
-            int release_year = resultSet.getInt("release_year");
-            int language_id = resultSet.getInt("language_id");
-            int rental_duration = resultSet.getInt("rental_duration");
             double rental_rate = resultSet.getDouble("rental_rate");
+            int rental_duration = resultSet.getInt("rental_duration");
             double replacement_cost = resultSet.getDouble("replacement_cost");
-            String rating = resultSet.getString("rating");
-                    
+
+            querySt.close();
+
+            Statement st = con.createStatement();
+            st.executeUpdate("INSERT INTO cart(film_id, customer_id, title "
+                    + "rental_duration, rental_rate, replacement_cost) "
+                    + "VALUES (" + film_id + ","
+                    + cust_id + ",'"
+                    + title + "',"
+                    + rental_duration + ","
+                    + rental_rate + ","
+                    + replacement_cost + ")");
+
+            st.close();
             con.close();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
     }
+
+    public void addToWishlist(int film_id, int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        try {
+            DbConnectionUtil db = new DbConnectionUtil();
+            Connection con = db.getConnection();
+
+            Statement querySt = con.createStatement();
+            ResultSet resultSet = querySt.executeQuery("SELECT * FROM film WHERE film_id = " + film_id);
+
+            String title = resultSet.getString("title");
+            double rental_rate = resultSet.getDouble("rental_rate");
+            int rental_duration = resultSet.getInt("rental_duration");
+            double replacement_cost = resultSet.getDouble("replacement_cost");
+
+            querySt.close();
+
+            Statement st = con.createStatement();
+            st.executeUpdate("INSERT INTO wishlist(film_id, customer_id, title "
+                    + "rental_duration, rental_rate, replacement_cost) "
+                    + "VALUES (" + film_id + ","
+                    + cust_id + ",'"
+                    + title + "',"
+                    + rental_duration + ","
+                    + rental_rate + ","
+                    + replacement_cost + ")");
+
+            st.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    //TODO: Remove from cart/wishlist, Move movie from Cart -> Wishlist, Move movie from Wishlist -> Cart
 }
