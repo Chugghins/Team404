@@ -2,14 +2,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js">
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
         <title>Customer Report Page</title>
 
         <style>
@@ -20,7 +28,7 @@
                 font-family: fantasy;
                 font-size: 35px;
                 text-align: center;
-                
+
             }
 
             .footer{
@@ -29,7 +37,6 @@
                 font-family: fantasy;
                 font-size: 20px;
                 text-align: right;
-                position: absolute;
                 right: 0;
                 bottom: 0;
                 left: 0;
@@ -46,53 +53,48 @@
 
     <body>
 
-        <header>Customer Report!</header>
+    <header>Customer Report!</header>
 
-        <div>
-
-            <h1>Customer Report Stuff</h1>
-            <table width="100%" border="1" style="text-align: center">
-
+    <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
+                       url = "jdbc:mysql://localhost:3306/sakila"
+                       user="root" password="nbuser"/>
+    <sql:query dataSource="${snapshot}" var="result">
+        SELECT p.customer_id, first_name, last_name, SUM(amount) AS Sales, COUNT(payment_id) AS Rented
+        FROM payment AS p JOIN customer AS c ON p.customer_id = c.customer_id GROUP BY p.customer_id
+    </sql:query>
+    <table border="1" id="customer">
+        <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Amount Spent</th>
+            <th># Movies Rented</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="row" items="${result.rows}">
             <tr>
-                <th></th>
-                <th>Customer ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email Address</th>
-                <th>Phone Number</th>
-                <th>Join Date</th>
-                <th colspan="2">Action</th>
+                <th><c:out value="${row.customer_id}"/></th>
+                <th><c:out value="${row.first_name}"/></th>
+                <th><c:out value="${row.last_name}"/></th>
+                <th><c:out value="${row.Sales}"/></th>
+                <th><c:out value="${row.Rented}"/></th>
             </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
-            <c:forEach items="${products}" var="product">
-                <tr>
-                    <td><c:out value=""/></td>
-                    <td><c:out value="${product.customer_id}"/></td>
-                    <td><c:out value="${product.product_id}"/></td>
-                    <td><c:out value="${product.quantity}"/></td>
-                    <td><c:out value="${product.shipping_cost}"/></td>
-                    <td><c:out value="${product.sales_date}"/></td>
-                    <td><c:out value="${product.shipping_date}"/></td>
-                    <td><c:url var="url1" value="/goToUpdate.do">
-                            <c:param name="id" value="${product.order_num}"/>
-                        </c:url>
-                        <a href="${fn:escapeXml(url1)}">Update</a>
-                    </td>
-                    <td><c:url var="url2" value="/delete.do">
-                            <c:param name="id" value="${product.order_num}"/>
-                        </c:url>
-                        <a href="${fn:escapeXml(url2)}">Delete</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-        <html:form action="/add">
-            <html:submit value="Add"/>
-        </html:form>
-            
 
-        </div>
+</div>
+<script type="text/javascript">
 
-        <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
-    </body>
+    $(document).ready(function () {
+        $('#customer').DataTable();
+    });
+
+</script>
+
+<div class="footer"><a class="one" href=login.jsp>Team404</a></div>
+</body>
 </html>

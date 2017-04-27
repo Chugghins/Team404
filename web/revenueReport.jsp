@@ -10,8 +10,14 @@
 
 <html>
     <head>
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js">
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
         <title>Revenue Report Page</title>
 
         <style>
@@ -22,7 +28,7 @@
                 font-family: fantasy;
                 font-size: 35px;
                 text-align: center;
-                
+
             }
 
             .footer{
@@ -31,7 +37,6 @@
                 font-family: fantasy;
                 font-size: 20px;
                 text-align: right;
-                position: absolute;
                 right: 0;
                 bottom: 0;
                 left: 0;
@@ -48,33 +53,43 @@
 
     <body>
 
-        <header>Revenue Report!</header>
+    <header>Revenue Report!</header>
 
-        <div>
+    <div>
 
-            <h1>Revenue Report</h1>
-            <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
-                               url = "jdbc:mysql://localhost:3306/sakila"
-                               user="root" password="nbuser"/>
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT * FROM sales_by_film_category
-            </sql:query>
-                <table border="1">
-                    <tr>
-                        <th>Category</th>
-                        <th>Total Sales</th>
-                    </tr>
-                    <c:forEach var="row" items="${result.rows}">
+        <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
+                           url = "jdbc:mysql://localhost:3306/sakila"
+                           user="root" password="nbuser"/>
+        <sql:query dataSource="${snapshot}" var="result">
+            SELECT * FROM sales_by_film_category
+        </sql:query>
+
+        <table border="1" id="revenue">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total Sales</th>
+            </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="row" items="${result.rows}">
                     <tr>
                         <th><c:out value="${row.category}"/></th>
                         <th><c:out value="${row.total_sales}"/></th>
                     </tr>
-                    </c:forEach>
-                </table>
-            
+                </c:forEach>
+            </tbody>
+        </table>
+        <script type="text/javascript">
 
-        </div>
+            $(document).ready(function () {
+                $('#revenue').DataTable();
+            });
 
-        <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
-    </body>
+        </script>
+
+    </div>
+
+    <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
+</body>
 </html>
