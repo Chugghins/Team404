@@ -35,9 +35,9 @@ public class AddCartAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         int film_id = Integer.parseInt(request.getParameter("addToCart"));
-        SearchDAO DAO = new SearchDAO();
+        CartDAO DAO = new CartDAO();
         ArrayList<Movie> movie = new ArrayList<>();
-        movie = DAO.search();
+       //movie = DAO.();
         request.getSession().setAttribute("movie", movie);
         return mapping.findForward(SUCCESS);
     }
