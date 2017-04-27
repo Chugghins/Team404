@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -50,7 +52,25 @@
 
         <div>
 
-            <h1>Revenue Report Stuff</h1>
+            <h1>Revenue Report</h1>
+            <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
+                               url = "jdbc:mysql://localhost:3306/sakila"
+                               user="root" password="nbuser"/>
+            <sql:query dataSource="${snapshot}" var="result">
+                SELECT * FROM sales_by_film_category
+            </sql:query>
+                <table border="1">
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Sales</th>
+                    </tr>
+                    <c:forEach var="row" items="${result.rows}">
+                    <tr>
+                        <th><c:out value="${row.category}"/></th>
+                        <th><c:out value="${row.total_sales}"/></th>
+                    </tr>
+                    </c:forEach>
+                </table>
             
 
         </div>
