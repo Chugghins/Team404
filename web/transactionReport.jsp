@@ -38,7 +38,7 @@
                 font-family: fantasy;
                 font-size: 20px;
                 text-align: right;
-                position: absolute;
+                position: relative;
                 right: 0;
                 bottom: 0;
                 left: 0;
