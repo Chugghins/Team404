@@ -14,6 +14,8 @@
 
         <style>
 
+            
+            
             header{
                 padding: 1rem;
                 background-color: lightgray;
@@ -35,7 +37,7 @@
                 left: 0;
 
             }
-
+            
             .one{
                 text-decoration: none;
                 color: black;
@@ -49,6 +51,7 @@
                 margin: 25px;
                 position: relative;
                 top: auto;
+               
             }
             .container2{
                 width: 500px;
@@ -59,11 +62,18 @@
                 position: relative;
                 top: auto;
                 
+                
+                
             }
-
-            h1{
-
+            
+            body {background-image: url(http://i.imgur.com/jBwJzeu.png;);
+                  background-repeat: no-repeat;
+                  background-position: center right;
+                  background-attachment: fixed;
+                  background-size: 25%;
+                  background-color: white;
             }
+            
 
         </style>
     </head>
@@ -78,17 +88,17 @@
 
         <h1>Need to add a new Admin?</h1>
 
-        <center><h2>Click <a href="newAdmin.jsp"> here!</a></h2></center>
+        <center><a href="newAdmin.jsp"><button style="width: 210px;">Click Here!</button></a></center>
     </div>
     
     
     <div class="container2">
+        <center>
         <center><h1>Reports</h1></center>
-        <a href="customerReport.jsp"><button>Customer Report</button></a>
-        <a href="inventoryReport.jsp"><button>Inventory Report</button></a>
-        <a href="revenueReport.jsp"><button>Revenue Report</button></a>
-        <p></p>
-        <a href="transactionReport.jsp"><button>Transaction Report</button></a>
+        <a href="customerReport.jsp"><button style="width: 210px;">Customer Report</button></a><p></p>
+        <a href="inventoryReport.jsp"><button style="width: 210px;">Inventory Report</button></a><p></p>
+        <a href="revenueReport.jsp"><button style="width: 210px;">Revenue Report</button></a><p></p>
+        <a href="transactionReport.jsp"><button style="width: 210px;">Transaction Report</button></a></center>
 
 
     </div>

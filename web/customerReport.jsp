@@ -54,7 +54,7 @@
 
     <body>
 
-    <header>Customer Report!</header>
+    <header><a  style="text-decoration: none;" href=adminPage.jsp>Customer Report!</a></header>
 
     <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/sakila"
@@ -87,7 +87,6 @@
     </table>
 
 
-</div>
 <script type="text/javascript">
 
     $(document).ready(function () {

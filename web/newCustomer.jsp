@@ -59,7 +59,7 @@
 
     <body>
 
-    <header>Welcome, New Customer!</header>
+    <header><a  style="text-decoration: none;" href=login.jsp>Welcome, New Customer!</a></header>
 
     <center>
         <div>

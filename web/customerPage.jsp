@@ -44,11 +44,12 @@
     <body>  
 
     <header>Welcome, Customer!</header>
-
-    <h1>Here's a bunch of stuff that we're going to fill the rest of this page with</h1>
+    <div>
+    <h1>Customer Things!</h1>
     <html:form action="/search">
         <html:submit value="Search For Movies"/>
     </html:form>  
+    </div>
 
     <div class="footer"><a href=login.jsp>Team404</a></div>
 

@@ -47,6 +47,7 @@
             .one{
                 text-decoration: none;
                 color: black;
+                
             }
 
         </style>
@@ -54,7 +55,7 @@
 
     <body>
 
-    <header>Inventory Report!</header>
+    <header><a  style="text-decoration: none;" href=adminPage.jsp>Inventory Report!</a></header>
 
     <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/sakila"
