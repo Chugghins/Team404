@@ -23,7 +23,7 @@
         <style>
 
             header{
-                 margin-top: 0;
+                margin-top: 0;
 
                 padding: 1rem;
                 background-color: lightgray;
@@ -62,16 +62,13 @@
             <input id="addToCart" type="number" name="addToCart" required min="0"/>
             <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
         </html:form>
-            
-        <div class="content">
-            <div class="content-inside">
-                <header>Search Page!</header>
-                <script type="text/javascript">
 
+                <header>Search Page!</header>
+                
+                <script type="text/javascript">
                     $(document).ready(function () {
                         $('#movie').DataTable();
                     });
-
                 </script>
 
                 <table width="100%" border="1" id="movie">
