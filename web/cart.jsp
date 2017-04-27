@@ -13,7 +13,7 @@
     </head>
     <body>
         <!-- Make two Tables, one for Cart one for Wishlist populate where customer_id equals-->
-        <h1>Hello World!</h1>
+        <h1>Cart</h1>
         
         
     </body>

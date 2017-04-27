@@ -23,7 +23,7 @@ public class CartDAO {
             Connection con = db.getConnection();
 
             Statement querySt = con.createStatement();
-            ResultSet resultSet = querySt.executeQuery("SELECT * FROM film WHERE film_id = " + film_id);
+            ResultSet resultSet = querySt.executeQuery("SELECT title, rental_rate, rental_duration, replacement_cost FROM film WHERE film_id = " + film_id);
 
             String title = resultSet.getString("title");
             double rental_rate = resultSet.getDouble("rental_rate");

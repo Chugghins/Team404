@@ -206,17 +206,6 @@ public class Customer extends ActionForm
         return errors;
     }
 
-    public boolean tryParse(String value)
-    {
-        try
-        {
-            Integer.parseInt(value);
-            return false;
-        } catch (NumberFormatException e)
-        {
-            return true;
-        }
-    }
     
     
 }
