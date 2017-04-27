@@ -5,7 +5,6 @@
  */
 package com.team404;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.Date;
@@ -57,10 +56,10 @@ public class RegisterDAO {
             if (!resultCity_id.isBeforeFirst()) {
                 Statement stNewCity = con.createStatement();
                 stNewCity.executeUpdate("INSERT INTO city(city, country_id) VALUES ('"
-                        + c.getCity() + "','"
-                        + country_id + "')");
-                stNewCity.close();
-                resultCity_id = stCountryID.executeQuery("SELECT city_id FROM city WHERE city = '"
+                        + c.getCity() + "',"
+                        + country_id + ")");
+                
+                resultCity_id = stCityID.executeQuery("SELECT city_id FROM city WHERE city = '"
                         + c.getCity() + "';");
                 stNewCity.close();
             }
@@ -85,7 +84,7 @@ public class RegisterDAO {
                 stNewAddress.close();
             }
             resultAddress_id.next();
-            int address_id = resultAddress_id.getInt(1);
+            int address_id = resultAddress_id.getInt("address_id");
 
             stAddressID.close();
 
@@ -125,11 +124,10 @@ public class RegisterDAO {
         }
         return false;
     }
-    
 
     public void newAdmin(Admin a) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         try {
-            
+
             DbConnectionUtil db = new DbConnectionUtil();
             Connection con = db.getConnection();
 
@@ -162,7 +160,6 @@ public class RegisterDAO {
                 stNewCity.executeUpdate("INSERT INTO city(city, country_id) VALUES ('"
                         + a.getCity() + "','"
                         + country_id + "')");
-                stNewCity.close();
                 resultCity_id = stCountryID.executeQuery("SELECT city_id FROM city WHERE city = '"
                         + a.getCity() + "';");
                 stNewCity.close();
@@ -227,16 +224,17 @@ public class RegisterDAO {
         }
         return false;
     }
-    public boolean validateAdminEmail(Admin a){
+
+    public boolean validateAdminEmail(Admin a) {
         String email = a.getEmail();
         //Counts how many @ characters are in the email
         int count = email.length() - email.replace("@", "").length();
-        
-        if(count != 1)//If none or more than one @ symbol
+
+        if (count != 1)//If none or more than one @ symbol
         {
             return false;
         }
-        if(!email.endsWith("@sakilastaff.com"))//If staff email does not end with staff domain
+        if (!email.endsWith("@sakilastaff.com"))//If staff email does not end with staff domain
         {
             return false;
         }
