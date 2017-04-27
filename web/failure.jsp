@@ -10,29 +10,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>ERROR</title>
-        
+
         <style>
-            h1{
-                font-size: 300%;
-            }
 
-            h2{
-                font-size: 200%;
-            }
+            body {background-image: url(https://ih1.redbubble.net/image.59867335.8235/flat,800x800,075,f.u1.jpg); 
+                  background-repeat: no-repeat;
+                  background-position: center right;
+                  background-attachment: fixed;
+                  background-size: 28%;
+                  background-color: white;
 
-            p{
-                font-size: 150%;
-            }
-            
-            a{
-                text-decoration: none;
-                color: black;
             }
             
             header{
-                
+                padding: 1rem;
+                background-color: lightgray;
+                font-family: fantasy;
+                font-size: 35px;
+                text-align: center;
+
             }
-            
+
             .footer{
                 padding: 1rem;
                 background-color: lightgray;
@@ -43,27 +41,47 @@
                 right: 0;
                 bottom: 0;
                 left: 0;
+
+            }
+
+            .one{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                width: 725px;
+                border: 4px solid black;
+                border-radius: 12px;
+                padding: 25px;
+                margin: 150px;
+                position: relative;
+                top: auto;
+
             }
             
-            body{
-                background-color: lightcyan;
+            h1{
+                font-weight: bold;
             }
+
         </style>
     </head>
     <body>
-        
-        
+
+
     <header>Failure Page</header>
-    
-        <div>
-            <h1><strong>Uh-Oh!</strong></h1>
+
+    <center>
+        <div class="container">
+            <center><h1>Uh-Oh!</h1></center>
 
             <h2>Either your Username or Password was incorrect...</h2>
 
-            <p><strong>Click <a href=login.jsp>here</a> to try again!</strong></p>
+            <a href=login.jsp><button>Try Again!</button></a>
 
         </div>
-        
-        <div class="footer"><a href=login.jsp>Team404</a></div>
-    </body>
+
+        <div class="footer"> <a class="one" href=login.jsp>Team404</a></div>
+    </center>
+</body>
 </html>
