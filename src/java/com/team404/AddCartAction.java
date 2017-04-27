@@ -8,6 +8,7 @@ package com.team404;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -34,11 +35,11 @@ public class AddCartAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        HttpSession session = request.getSession();
         int film_id = Integer.parseInt(request.getParameter("addToCart"));
         CartDAO DAO = new CartDAO();
-        ArrayList<Movie> movie = new ArrayList<>();
-       //movie = DAO.();
-        request.getSession().setAttribute("movie", movie);
+        int cust_id = (Integer) session.getAttribute("cust_id");
+        DAO.addToCart(film_id, cust_id);
         return mapping.findForward(SUCCESS);
     }
 }
