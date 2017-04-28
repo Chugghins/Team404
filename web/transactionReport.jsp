@@ -69,7 +69,7 @@
             <tr>
                 <th>Year</th>
                 <th>Month</th>
-                <th>Sales ($)</th>
+                <th>Sales</th>
                 <th>Transactions</th>
             </tr>
         </thead>
@@ -78,7 +78,7 @@
                 <tr>
                     <th><c:out value="${row.Year}"/></th>
                     <th><c:out value="${row.Month}"/></th>
-                    <th><c:out value="${row.Sales}"/></th>
+                    <th><c:out value="$${row.Sales}"/></th>
                     <th><c:out value="${row.Transactions}"/></th>
                 </tr>
             </c:forEach>

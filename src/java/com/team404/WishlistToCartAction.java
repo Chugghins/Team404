@@ -5,6 +5,7 @@
  */
 package com.team404;
 
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,7 +17,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Chugg1
  */
-public class AddWishlistAction extends org.apache.struts.action.Action {
+public class WishlistToCartAction extends org.apache.struts.action.Action {
 
     private static final String SUCCESS = "success";
 
@@ -34,14 +35,25 @@ public class AddWishlistAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        //Doesn't reload form on action
-        response.setStatus(204);
-        
+
         HttpSession session = request.getSession();
-        int film_id = Integer.parseInt(request.getParameter("addToWishlist"));
+        int film_id = Integer.parseInt(request.getParameter("id"));
         CartDAO DAO = new CartDAO();
         int cust_id = (Integer) session.getAttribute("cust_id");
-        DAO.addToWishlist(film_id, cust_id);
-        return mapping.findForward(SUCCESS);
+        //Checks to make sure customer does not have 5 movies in cart/rented out
+        if (DAO.checkNumCart(cust_id)) {
+            DAO.removeWishlist(film_id, cust_id);
+            DAO.addToCart(film_id, cust_id);
+
+            ArrayList<Movie> cart = new ArrayList<>();
+            cart = DAO.getCart(cust_id);
+            request.getSession().setAttribute("cart", cart);
+
+            ArrayList<Movie> wishlist = new ArrayList<>();
+            wishlist = DAO.getWishlist(cust_id);
+            request.getSession().setAttribute("wishlist", wishlist);
+            return mapping.findForward(SUCCESS);
+        }
+        return mapping.findForward("");
     }
 }

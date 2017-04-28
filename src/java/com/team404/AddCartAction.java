@@ -5,7 +5,6 @@
  */
 package com.team404;
 
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -35,11 +34,21 @@ public class AddCartAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        //Doesn't reload form on action
+        response.setStatus(204);
+
         HttpSession session = request.getSession();
         int film_id = Integer.parseInt(request.getParameter("addToCart"));
         CartDAO DAO = new CartDAO();
         int cust_id = (Integer) session.getAttribute("cust_id");
-        DAO.addToCart(film_id, cust_id);
+        //Checks if there are too many movies rented out/in cart
+        if (DAO.checkNumCart(cust_id)) {
+            DAO.addToCart(film_id, cust_id);
+        }
+        else{
+            //Notify User that they have too many movies rented out/in cart
+            return mapping.findForward("");
+        }
         return mapping.findForward(SUCCESS);
     }
 }

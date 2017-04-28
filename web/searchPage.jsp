@@ -102,8 +102,8 @@
                     <td><c:out value="${movie.title}" /></td>
                     <td><c:out value="${movie.description}" /></td>
                     <td><c:out value="${movie.genre}" /></td>
-                    <td><c:out value="${movie.rental_rate}" /></td>
-                    <td><c:out value="${movie.length}" /></td>
+                    <td><c:out value="$${movie.rental_rate}" /></td>
+                    <td><c:out value="${movie.length} Days" /></td>
                     <td><c:out value="${movie.rating}" /></td>
                     <td><c:out value="${movie.actor}" /></td>
                 </tr>
@@ -115,6 +115,6 @@
 
 
 </body>
-<div class="footer"><a href=login.jsp>Team404</a></div>
+<div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 
 </html>

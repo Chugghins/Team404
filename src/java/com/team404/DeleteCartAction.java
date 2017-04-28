@@ -5,6 +5,7 @@
  */
 package com.team404;
 
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,7 +17,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Chugg1
  */
-public class AddWishlistAction extends org.apache.struts.action.Action {
+public class DeleteCartAction extends org.apache.struts.action.Action {
 
     private static final String SUCCESS = "success";
 
@@ -34,14 +35,18 @@ public class AddWishlistAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        //Doesn't reload form on action
-        response.setStatus(204);
-        
+
         HttpSession session = request.getSession();
-        int film_id = Integer.parseInt(request.getParameter("addToWishlist"));
+        int film_id = Integer.parseInt(request.getParameter("id"));
         CartDAO DAO = new CartDAO();
         int cust_id = (Integer) session.getAttribute("cust_id");
-        DAO.addToWishlist(film_id, cust_id);
+       
+        DAO.removeCart(film_id, cust_id);
+        
+        ArrayList<Movie> cart = new ArrayList<>();
+        cart = DAO.getCart(cust_id);
+      
+        request.getSession().setAttribute("cart", cart);
         return mapping.findForward(SUCCESS);
     }
 }

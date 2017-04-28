@@ -1,7 +1,7 @@
 <%-- 
-    Document   : success
-    Created on : Apr 10, 2017, 10:20:53 PM
-    Author     : Andrew
+    Document   : checkOutPage
+    Created on : Apr 28, 2017, 2:44:20 AM
+    Author     : Chugg1
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Page</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome Valued User!</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>

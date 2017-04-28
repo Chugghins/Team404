@@ -43,12 +43,31 @@
                 <forward name="success" path="/searchPage.jsp" redirect="true" />
             </action>
             <action input="/searchPage.jsp" name="Movie" path="/addToCart" scope="request" type="com.team404.AddCartAction">
-                <forward name="success" path="/searchPage.jsp" redirect="true" />
+                <forward name="success" path="/searchPage.jsp" redirect="false" />
             </action>
             <action input="/searchPage.jsp" name="Movie" path="/addToWishlist" scope="request" type="com.team404.AddWishlistAction">
-                <forward name="success" path="/searchPage.jsp" redirect="true" />
+                <forward name="success" path="/searchPage.jsp" redirect="false" />
             </action>
-
+            <action name ="Movie" path="/viewCart" scope="session" type="com.team404.ViewCartAction"> 
+                <forward name="success" path="/cartPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/checkOut" scope="session" type="com.team404.toCheckOutAction"> 
+                <forward name="success" path="/checkOutPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/moveToWishlist" scope="session" type="com.team404.CartToWishlistAction"> 
+                <forward name="success" path="/cartPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/deleteFromCart" scope="session" type="com.team404.DeleteCartAction"> 
+                <forward name="success" path="/cartPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/moveToCart" scope="session" type="com.team404.WishlistToCartAction"> 
+                <forward name="success" path="/cartPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/deleteFromWishlist" scope="session" type="com.team404.DeleteWishlistAction"> 
+                <forward name="success" path="/cartPage.jsp" redirect="true"/>
+            </action>
+            
+            
                                 
     </action-mappings>
     

@@ -19,7 +19,10 @@ public class Movie {
     private String rating;
     private String actor;
     private String genre;
+    private double replacement_cost;
+    private int rental_duration;
 
+    //constructor for search
     public Movie(int f_id, String t, String desc, String gnre,
             double r_rate, int lngth, String rting, String a_name) {
         film_id = f_id;
@@ -35,6 +38,16 @@ public class Movie {
 
     public Movie() {
         super();
+    }
+
+    //Constructor for cart/wishlist display
+    Movie(int film_id, String title, int rental_duration, double rental_rate, double replacement_cost) {
+        this.film_id = film_id;
+        this.title = title;
+        this.rental_duration = rental_duration;
+        this.rental_rate = rental_rate;
+        this.replacement_cost = replacement_cost;
+
     }
 
     public int getFilm_id() {
@@ -99,6 +112,22 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getReplacement_cost() {
+        return replacement_cost;
+    }
+
+    public void setReplacement_cost(double replacement_cost) {
+        this.replacement_cost = replacement_cost;
+    }
+
+    public int getRental_duration() {
+        return rental_duration;
+    }
+
+    public void setRental_duration(int rental_duration) {
+        this.rental_duration = rental_duration;
     }
 
 }

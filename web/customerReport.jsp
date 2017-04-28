@@ -79,7 +79,7 @@
                 <th><c:out value="${row.customer_id}"/></th>
                 <th><c:out value="${row.first_name}"/></th>
                 <th><c:out value="${row.last_name}"/></th>
-                <th><c:out value="${row.Sales}"/></th>
+                <th><c:out value="$${row.Sales}"/></th>
                 <th><c:out value="${row.Rented}"/></th>
             </tr>
         </c:forEach>
