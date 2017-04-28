@@ -7,6 +7,7 @@ package com.team404;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -33,6 +34,7 @@ public class LoginAction extends Action
             HttpServletRequest request, HttpServletResponse response)
             throws Exception
     {
+        HttpSession session = request.getSession();
         String redirect = "failure";
         LoginForm loginForm = (LoginForm) form;
         String username = loginForm.getUsername();
@@ -51,8 +53,8 @@ public class LoginAction extends Action
                 //Check against customer table
                 LoginDAO DAO = new LoginDAO();
                 redirect = DAO.customerLogin(username, password);
-                int cust_id = DAO.getCust_id(username);
-                request.getSession().setAttribute("cust_id", cust_id);
+                Integer cust_id = DAO.getCust_id(username);
+                session.setAttribute("cust_id", cust_id);
             }
         }
         return mapping.findForward(redirect);

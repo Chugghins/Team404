@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>New Customer</title>
 
+        
         <style>
 
             body {background-image: url(https://ih0.redbubble.net/image.279406380.5366/flat,800x800,075,f.u3.jpg); 
@@ -109,7 +110,7 @@
                     <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
                     <p></p>
                 </html:form>
-            
+
         </div>
     </center>
     <div class="footer"><a href=login.jsp>Team404</a></div>

@@ -76,7 +76,7 @@
                 <c:forEach var="row" items="${result.rows}">
                     <tr>
                         <th><c:out value="${row.category}"/></th>
-                        <th><c:out value="${row.total_sales}"/></th>
+                        <th><c:out value="$${row.total_sales}"/></th>
                     </tr>
                 </c:forEach>
             </tbody>

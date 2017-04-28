@@ -70,8 +70,10 @@ public class LoginDAO {
         int cust_id = 0;
         try {
             Statement st = con.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT customer_id FROM Customer WHERE email = '" + email + " LIMIT 1;");
+            ResultSet resultSet = st.executeQuery("SELECT customer_id FROM customer WHERE email = '" + email + "'");
+            resultSet.next();
             cust_id = resultSet.getInt("customer_id");
+            st.close();
         } catch (SQLException ex) {
             System.out.println(ex);
         }

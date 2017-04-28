@@ -66,7 +66,9 @@
             <html:form action="/search">
                 <html:submit style="width: 210px;" value="Search For Movies"/>
             </html:form><p></p>
-            <a href="customerReport.jsp"><button style="width: 210px;">Customer Cart</button></a><p></p>
+            <html:form action="/viewCart">
+                <html:submit style="width: 210px;" value="Customer Cart"/>
+            </html:form><p></p>
             <a href="inventoryReport.jsp"><button style="width: 210px;">Purchase History</button></a>
         </center>
         
@@ -83,7 +85,7 @@
         LIMIT 5;
     </sql:query>
         
-        <table border="3" id="customer">
+        <table border="1" id="customer">
         <thead>
         <tr>
             <th>Film ID</th>
