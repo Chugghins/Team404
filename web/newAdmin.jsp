@@ -59,6 +59,10 @@
                 <tbody>
                     <html:form action="/newAdmin" focus="first_name">
                         <tr>
+                            <td colspan="2">
+                                <html:errors/>
+                            </td>
+                        <tr>
                             <td>First Name:</td> 
                             <td><html:text property="first_name"/></td>
                         </tr>
