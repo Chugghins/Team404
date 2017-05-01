@@ -39,7 +39,6 @@
                 font-family: fantasy;
                 font-size: 20px;
                 text-align: right;
-                position: absolute;
                 right: 0;
                 bottom: 0;
                 left: 0;
@@ -69,6 +68,10 @@
                 <table>
                     <tbody>
                         <html:form action="/newCustomer" focus="first_name">
+                            <tr>
+                            <td colspan="2">
+                                <html:errors/>
+                            </td>
                             <tr>
                                 <td>First Name:</td> 
                                 <td><html:text property="first_name"/></td>
@@ -107,7 +110,7 @@
                         </tr>
                         </tbody>
                     </table></br>
-                    <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
+                    <html:submit style="width: 100px;" value="Register"/></br>
                     <p></p>
                 </html:form>
 

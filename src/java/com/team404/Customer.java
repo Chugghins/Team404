@@ -198,10 +198,11 @@ public class Customer extends ActionForm
         {
             errors.add("password", new ActionMessage("errors.required", "Password"));
         }
-        else if (password.length() != 8)
+        else if (password.length() < 8)
         {
             errors.add("password", new ActionMessage("errors.minlength", "Password"));
         }
+        
         
         return errors;
     }
