@@ -9,10 +9,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -142,12 +144,13 @@ public class TransactionDAO {
 
             Statement st4 = con.createStatement();
             st4.executeUpdate("INSERT INTO payment(customer_id, staff_id, rental_id, amount, payment_date) "
-                    + "VALUES( " + cust_id + ", 1, " + rental_id + ", " + cartTotal + ", '" 
+                    + "VALUES( " + cust_id + ", 1, " + rental_id + ", " + cartTotal + ", '"
                     + new java.sql.Date(calendar.getTimeInMillis()) + "');");
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
+
     public ArrayList<Rental> getPurchaseHistory(int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         DbConnectionUtil dbUtil = new DbConnectionUtil();
         Connection con = dbUtil.getConnection();
@@ -178,27 +181,54 @@ public class TransactionDAO {
         return rentals;
 
     }
-    public ArrayList<Rental> getCurRented(int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+    public ArrayList<Rental> getCurRented(int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, ParseException {
         DbConnectionUtil dbUtil = new DbConnectionUtil();
         Connection con = dbUtil.getConnection();
         ArrayList<Rental> rentals = new ArrayList<>();
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Date timeNow = new java.sql.Date(calendar.getTimeInMillis());
+        Calendar cal1 = new GregorianCalendar();
+        Calendar cal2 = new GregorianCalendar();
+
         try {
             Statement st = con.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT f.film_id AS film_id, title, rental_date, replacement_cost, rental_rate, length "
+            ResultSet resultSet = st.executeQuery("SELECT f.film_id AS film_id, i.inventory_id, title, rental_date, replacement_cost, rental_rate, length "
                     + "FROM rental AS r JOIN inventory AS i ON r.inventory_id = i.inventory_id JOIN "
                     + "film AS f ON f.film_id = i.film_id WHERE customer_id = " + cust_id + " AND return_date is null");
 
             while (resultSet.next()) {
                 int film_id = resultSet.getInt("f.film_id");
+                int inv_id = resultSet.getInt("inventory_id");
                 String title = resultSet.getString("title");
                 String rental_date = resultSet.getString("rental_date");
                 double late_fee = 0;
-                //if(){
-                    
-                //}
+                int length = resultSet.getInt("length");
+                double replacement_cost = resultSet.getDouble("replacement_cost");
+                double rental_rate = resultSet.getDouble("rental_rate");
+                Date date = sdf.parse(rental_date);
+                cal1.setTime(date);
+                date = sdf.parse(timeNow.toString());
+                cal2.setTime(date);
+                int difference = daysBetween(cal1.getTime(), cal2.getTime());
 
-                Rental r = new Rental(film_id, title, rental_date, late_fee);
+                Statement st3 = con.createStatement();
+                ResultSet results = st3.executeQuery("SELECT rental_id FROM rental WHERE inventory_id= " + inv_id + " AND customer_id= " + cust_id);
+                results.next();
+                int rental_id = results.getInt("rental_id");
+
+                if (difference > length) {
+                    //Replacement_cost is charged if movie is late for over double the late day
+                    if (difference > length * 2) {
+                        late_fee = replacement_cost;
+                    } else {
+                        //20% of rental cost per late day
+                        late_fee = (difference - length) * (rental_rate * 0.20);
+                    }
+                }
+
+                Rental r = new Rental(rental_id, film_id, title, rental_date, late_fee);
                 rentals.add(r);
 
             }
@@ -208,9 +238,10 @@ public class TransactionDAO {
         }
 
         con.close();
-        
+
         return rentals;
     }
+
     public Long TryParseLong(String someText) {
         try {
             return Long.parseLong(someText);
@@ -218,5 +249,26 @@ public class TransactionDAO {
             return null;
         }
     }
-    
+
+    public void returnMovie(int cust_id, int rental_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, ParseException {
+
+        DbConnectionUtil dbUtil = new DbConnectionUtil();
+        Connection con = dbUtil.getConnection();
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Date timeNow = new java.sql.Date(calendar.getTimeInMillis());
+        try {
+            Statement st3 = con.createStatement();
+            st3.executeUpdate("UPDATE rental SET return_date= '" + timeNow + "'"
+                    + " WHERE rental_id= " + rental_id + ";");
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+    }
+    //Finds the number of days between two dates
+
+    public int daysBetween(Date d1, Date d2) {
+        return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
+    }
 }
