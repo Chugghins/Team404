@@ -16,6 +16,7 @@ public class Rental {
     private String rental_date;
     private String return_date;
     private Double late_fee;
+    private int rental_id;
 
     Rental(int film_id, String title, String rental_date, String return_date) {
         this.film_id = film_id;
@@ -24,7 +25,8 @@ public class Rental {
         this.return_date = return_date;
     }
 
-    Rental(int film_id, String title, String rental_date, Double late_fee) {
+    Rental(int rental_id, int film_id, String title, String rental_date, Double late_fee) {
+        this.rental_id = rental_id;
         this.film_id = film_id;
         this.title = title;
         this.rental_date = rental_date;
@@ -73,6 +75,14 @@ public class Rental {
 
     public void setLate_fee(Double late_fee) {
         this.late_fee = late_fee;
+    }
+
+    public int getRental_id() {
+        return rental_id;
+    }
+
+    public void setRental_id(int rental_id) {
+        this.rental_id = rental_id;
     }
 
 }

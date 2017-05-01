@@ -49,11 +49,11 @@
 
     <body>
 
-    <header>Welcome New Admin!</header>
+    <header>Add a New Admin!</header>
 
     <center>
         <div>
-            <h2>Enter your info below:</h2>
+            <h2>Enter Admin's info below:</h2>
 
             <table>
                 <tbody>
@@ -97,6 +97,11 @@
                 <html:submit style="width: 100px; position: fixed;" value="Register"/></br>
 
             </html:form>
+            <p align="right" style="padding: 0px 583px 0px 0px">
+                <a href="adminPage.jsp"><button style="width: 100px;">Cancel</button></a> 
+            </p>
+
+
         </div>
     </center>
     <div class="footer"><a class="one" href=login.jsp>Team404</a></div>

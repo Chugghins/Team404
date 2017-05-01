@@ -86,14 +86,14 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${rental}" var="rental">
+                <c:forEach items="${rentedMovies}" var="rental">
                     <tr>
                         <td align="right"><c:out value="${rental.film_id}" /></td>
                         <td><c:out value="${rental.title}" /></td>
                         <td align="right"><c:out value="${rental.rental_date}" /></td>
-                        <td align="right"><c:out value="${rental.return_date}" /></td>
-                        <td align="center"><c:url var="url1" value="/returnMovie.do">
-                                <c:param name="return_id" value="${row.FID}"/>
+                        <td align="right"><c:out value="${rental.late_fee}" /></td>
+                        <td align="center"><c:url var="url1" value="/processReturn.do">
+                                <c:param name="rental_id" value="${rental.rental_id}"/>
                             </c:url>
                             <a href="${fn:escapeXml(url1)}">Return</a>
                         </td>
@@ -101,5 +101,8 @@
                 </c:forEach>
             </tbody>
         </table>
+        <p align="right" style="margin-right: 30px">
+            <a href="customerPage.jsp"><button style="width: 130px;">Back to Profile</button></a> 
+        </p>
     </body>
 </html>

@@ -73,6 +73,9 @@
             <action name ="Movie" path="/viewReturn" scope="request" type="com.team404.toReturnAction"> 
                 <forward name="success" path="/returnPage.jsp" redirect="true"/>
             </action>
+            <action name ="Movie" path="/processReturn" scope="request" type="com.team404.ReturnAction"> 
+                <forward name="success" path="/customerPage.jsp" redirect="true"/>
+            </action>
                                 
     </action-mappings>
     
