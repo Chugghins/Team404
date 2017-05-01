@@ -48,12 +48,16 @@ public class LoginAction extends Action
                 //Check against staff table
                 LoginDAO DAO = new LoginDAO();
                 redirect = DAO.adminLogin(username, password);
+                String admin_name = DAO.getAdminName(username);
+                session.setAttribute("admin_name", admin_name);
             } else
             {
                 //Check against customer table
                 LoginDAO DAO = new LoginDAO();
                 redirect = DAO.customerLogin(username, password);
                 Integer cust_id = DAO.getCust_id(username);
+                String cust_name = DAO.getCustName(cust_id);
+                session.setAttribute("cust_name", cust_name);
                 session.setAttribute("cust_id", cust_id);
             }
         }

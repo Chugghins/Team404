@@ -80,15 +80,15 @@
 
     <body>
 
-    <header>Welcome, Admin!</header>
+    <header>Welcome, ${admin_name}!</header>
 
 
     <div class="container">
 
 
-        <h1>Need to add a new Admin?</h1>
+        <center><h1>Need to add a new Admin?</h1>
 
-        <center><a href="newAdmin.jsp"><button style="width: 210px;">Click Here!</button></a></center>
+        <a href="newAdmin.jsp"><button style="width: 210px;">Click Here!</button></a></center>
     </div>
     
     

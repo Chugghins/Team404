@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -167,9 +168,10 @@ public class CartDAO {
             resultSet.close();
 
             Statement st2 = con.createStatement();
-            ResultSet resultSet2 = st2.executeQuery("SELECT COUNT(*) AS MovCurRented FROM rental WHERE customer_id = " + cust_id + " AND return_date = NULL");
-            resultSet.next();
-            movCurRented = resultSet.getInt("MovCurRented");
+            ResultSet resultSet2 = st2.executeQuery("SELECT COUNT(*) AS MovCurRented FROM rental WHERE customer_id = " 
+                    + cust_id + " AND return_date is null");
+            resultSet2.next();
+            movCurRented = resultSet2.getInt("MovCurRented");
 
             resultSet2.close();
 
@@ -185,7 +187,6 @@ public class CartDAO {
 
     }
 
-    //TODO: Remove from cart/wishlist, Move movie from Cart -> Wishlist, Move movie from Wishlist -> Cart
     public void removeCart(int film_id, int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         DbConnectionUtil dbUtil = new DbConnectionUtil();
@@ -210,6 +211,23 @@ public class CartDAO {
         try {
             Statement st = con.createStatement();
             st.executeUpdate("DELETE FROM wishlist WHERE customer_id = " + cust_id + " AND film_id = " + film_id + " Limit 1");
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        con.close();
+    }
+
+    
+    public void clearCart(int cust_id)throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        DbConnectionUtil dbUtil = new DbConnectionUtil();
+        Connection con = dbUtil.getConnection();
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate("DELETE FROM cart WHERE customer_id = " + cust_id);
 
         } catch (SQLException ex) {
             System.out.println(ex);

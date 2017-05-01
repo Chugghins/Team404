@@ -62,17 +62,19 @@
     <body>
     <header>Search Page!</header>
     <p>
-    <html:form action="/addToCart" >
-        Film ID:
-        <input id="addToCart" type="number" name="addToCart" required min="0"/>
-        <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
-    </html:form>
-         &nbsp&nbsp&nbsp&nbsp
-    <html:form action="/addToWishlist" >
-        Film ID:
-        <input id="addToWishlist" type="number" name="addToWishlist" required min="0"/>
-        <button type="submit" value="submitToWishlist" name="submitToWishlist">Add to Wishlist</button>
-    </html:form>
+        <html:form action="/addToCart" >
+            Film ID:
+            <input id="addToCart" type="number" name="addToCart" required min="0"/>
+            <button type="submit" value="submitToCart" name="submitToCart">Add to Cart</button>
+        </html:form>
+        &nbsp&nbsp&nbsp&nbsp
+        <html:form action="/addToWishlist" >
+            Film ID:
+            <input id="addToWishlist" type="number" name="addToWishlist" required min="0"/>
+            <button type="submit" value="submitToWishlist" name="submitToWishlist">Add to Wishlist</button>
+        </html:form>
+        &nbsp&nbsp&nbsp&nbsp
+        <a href="customerPage.jsp"><button style="width: 130px; float: right; margin-right: 30px">Back to Profile</button></a> 
     </p>
     <p></p>
 

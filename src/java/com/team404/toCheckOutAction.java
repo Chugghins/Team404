@@ -5,6 +5,7 @@
  */
 package com.team404;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Chugg1
  */
-public class WishlistToCartAction extends org.apache.struts.action.Action {
+public class toCheckOutAction extends org.apache.struts.action.Action {
 
     private static final String SUCCESS = "success";
 
@@ -35,25 +36,25 @@ public class WishlistToCartAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
         HttpSession session = request.getSession();
-        int film_id = Integer.parseInt(request.getParameter("id"));
-        CartDAO DAO = new CartDAO();
         int cust_id = (Integer) session.getAttribute("cust_id");
-        //Checks to make sure customer does not have 5 movies in cart/rented out
-        if (DAO.checkNumCart(cust_id)) {
-            DAO.removeWishlist(film_id, cust_id);
-            DAO.addToCart(film_id, cust_id);
-
-            ArrayList<Movie> cart = new ArrayList<>();
-            cart = DAO.getCart(cust_id);
-            request.getSession().setAttribute("cart", cart);
-
-            ArrayList<Movie> wishlist = new ArrayList<>();
-            wishlist = DAO.getWishlist(cust_id);
-            request.getSession().setAttribute("wishlist", wishlist);
-            return mapping.findForward(SUCCESS);
+        CartDAO cDAO = new CartDAO();
+        ArrayList<Movie> cart = new ArrayList<>();
+        cart = cDAO.getCart(cust_id);
+        double cartTotal = 0;
+        for(int x = 0; x < cart.size(); x++){
+            cartTotal += cart.get(x).getRental_rate();
         }
+        cartTotal = (int)(cartTotal * Math.pow(10 , 2));
+        cartTotal = cartTotal/100;
+        CreditInfo creditInfo = (CreditInfo) form;
+        TransactionDAO tDAO = new TransactionDAO();
+        creditInfo = tDAO.getCreditCard(cust_id);
+        
+        request.getSession().setAttribute("creditInfo", creditInfo);
+        request.getSession().setAttribute("cartTotal", cartTotal);
+        request.getSession().setAttribute("cart", cart);
         return mapping.findForward(SUCCESS);
     }
 }
+

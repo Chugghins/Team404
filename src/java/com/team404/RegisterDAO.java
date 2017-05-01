@@ -141,8 +141,7 @@ public class RegisterDAO {
             if (!resultCountry_id.isBeforeFirst()) {
                 Statement stNewCountry = con.createStatement();
                 stNewCountry.executeUpdate("INSERT INTO country(country) VALUES ('"
-                        + a.getCountry() + "')");
-                stNewCountry.close();
+                        + a.getCountry() + "')");  
                 resultCountry_id = stCountryID.executeQuery("SELECT country_id FROM country WHERE country = '"
                         + a.getCountry() + "';");
                 stNewCountry.close();
