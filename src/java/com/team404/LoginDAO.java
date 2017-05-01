@@ -81,4 +81,40 @@ public class LoginDAO {
         return cust_id;
 
     }
+     public String getCustName(int cust_id) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        DbConnectionUtil db = new DbConnectionUtil();
+        Connection con = db.getConnection();
+        String name = "";
+        try {
+            Statement st = con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT first_name, last_name FROM customer WHERE customer_id = " + cust_id );
+            resultSet.next();
+            name = resultSet.getString("first_name") + " " + resultSet.getString("last_name");
+            st.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        con.close();
+        return name;
+
+    }
+      public String getAdminName(String email) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        DbConnectionUtil db = new DbConnectionUtil();
+        Connection con = db.getConnection();
+        String name = "";
+        try {
+            Statement st = con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT first_name, last_name FROM staff WHERE email = '" + email + "';");
+            resultSet.next();
+            name = resultSet.getString("first_name") + " " + resultSet.getString("last_name");
+            st.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        con.close();
+        return name;
+
+    }
 }

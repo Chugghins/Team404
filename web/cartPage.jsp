@@ -53,7 +53,7 @@
             table, td, th {    
                 border: 3.5px solid #5F5B5A;
                 border-collapse: collapse;
-                
+
             }
             th{
                 background-color: #ffffff
@@ -107,8 +107,8 @@
             </tbody>
         </table>
         </br>
-        <html:form action="/checkOut" style="float: right;  margin-right: 30px;"  >
-            <button type="submit" value="checkOut" name="checkOut" >Check Out</button>
+        <html:form action="/toCheckOut" style="float: right;  margin-right: 30px;"  >
+            <button style="width: 130px;" type="submit" value="checkOut" name="checkOut" >Check Out</button>
         </html:form>
         </br></br>
         <header>Wishlist</header>
@@ -146,8 +146,9 @@
                 </c:forEach>
             </tbody>
         </table>
-
-
+        <p align="right" style="margin-right: 30px">
+            <a href="customerPage.jsp"><button style="width: 130px;">Back to Profile</button></a> 
+        </p>
     </body>
     <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 

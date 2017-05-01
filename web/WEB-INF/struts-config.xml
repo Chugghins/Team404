@@ -11,7 +11,7 @@
         <form-bean name="loginForm" type="com.team404.LoginForm"/>
         <form-bean name="Customer" type="com.team404.Customer"/>
         <form-bean name="Admin" type="com.team404.Admin"/>
-
+        <form-bean name="CreditInfo" type="com.team404.CreditInfo"/>
     </form-beans>
     
     <global-exceptions>
@@ -33,11 +33,9 @@
                 <forward name="success" path="/login.jsp" redirect="true"/>
                 <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
-            
             <action name="Admin" path="/newAdmin" type="com.team404.NewAdminAction" scope="request" input="/newAdmin.jsp">
                 <forward name="success" path="/adminPage.jsp" redirect="true"/>
-                <forward name="failure" path="/failure.jsp" redirect="true"/>
-                
+                <forward name="failure" path="/failure.jsp" redirect="true"/>        
             </action>
             <action input="/customerPage.jsp" name="Movie" path="/search" scope="session" type="com.team404.SearchAction">
                 <forward name="success" path="/searchPage.jsp" redirect="true" />
@@ -51,7 +49,7 @@
             <action name ="Movie" path="/viewCart" scope="session" type="com.team404.ViewCartAction"> 
                 <forward name="success" path="/cartPage.jsp" redirect="true"/>
             </action>
-            <action name ="Movie" path="/checkOut" scope="session" type="com.team404.toCheckOutAction"> 
+            <action name ="CreditInfo" path="/toCheckOut" scope="session" type="com.team404.toCheckOutAction"> 
                 <forward name="success" path="/checkOutPage.jsp" redirect="true"/>
             </action>
             <action name ="Movie" path="/moveToWishlist" scope="session" type="com.team404.CartToWishlistAction"> 
@@ -66,8 +64,15 @@
             <action name ="Movie" path="/deleteFromWishlist" scope="session" type="com.team404.DeleteWishlistAction"> 
                 <forward name="success" path="/cartPage.jsp" redirect="true"/>
             </action>
-            
-            
+            <action name ="CreditInfo" path="/processCheckOut" scope="request" type="com.team404.CheckOutAction"> 
+                <forward name="success" path="/customerPage.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/purchaseHistory" scope="request" type="com.team404.PurchaseHistoryAction"> 
+                <forward name="success" path="/purchaseHistory.jsp" redirect="true"/>
+            </action>
+            <action name ="Movie" path="/viewReturn" scope="request" type="com.team404.toReturnAction"> 
+                <forward name="success" path="/returnPage.jsp" redirect="true"/>
+            </action>
                                 
     </action-mappings>
     

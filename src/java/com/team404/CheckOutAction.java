@@ -5,6 +5,7 @@
  */
 package com.team404;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author Chugg1
  */
-public class WishlistToCartAction extends org.apache.struts.action.Action {
+public class CheckOutAction extends org.apache.struts.action.Action {
 
     private static final String SUCCESS = "success";
 
@@ -35,24 +36,26 @@ public class WishlistToCartAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
         HttpSession session = request.getSession();
-        int film_id = Integer.parseInt(request.getParameter("id"));
-        CartDAO DAO = new CartDAO();
         int cust_id = (Integer) session.getAttribute("cust_id");
-        //Checks to make sure customer does not have 5 movies in cart/rented out
-        if (DAO.checkNumCart(cust_id)) {
-            DAO.removeWishlist(film_id, cust_id);
-            DAO.addToCart(film_id, cust_id);
+        CartDAO cDAO = new CartDAO();
+        TransactionDAO tDAO = new TransactionDAO();
+        CreditInfo CreditInfo = (CreditInfo) form;
+        if (tDAO.validateCredit(CreditInfo)){
+            //user selected to save credit info
+            String saveCredit = request.getParameter("saveCredit");
+            if (saveCredit != null && !saveCredit.isEmpty()) {
+                tDAO.setCreditCard(CreditInfo, cust_id);
+            }
+             ArrayList<Movie> cart = new ArrayList<>();
+             cart = cDAO.getCart(cust_id);
+             double cartTotal = (Double) session.getAttribute("cartTotal");
+             tDAO.processSale(cart, cartTotal, cust_id);
 
-            ArrayList<Movie> cart = new ArrayList<>();
-            cart = DAO.getCart(cust_id);
-            request.getSession().setAttribute("cart", cart);
-
-            ArrayList<Movie> wishlist = new ArrayList<>();
-            wishlist = DAO.getWishlist(cust_id);
-            request.getSession().setAttribute("wishlist", wishlist);
-            return mapping.findForward(SUCCESS);
+             cDAO.clearCart(cust_id);
+        }
+        else{
+            //Invalid Credit Card
         }
         return mapping.findForward(SUCCESS);
     }
