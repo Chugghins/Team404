@@ -56,7 +56,9 @@
     <body>
 
     <header><a  style="text-decoration: none;" href=adminPage.jsp>Transaction Report!</a></header>
-
+    <p align="right" style="padding: 0px 30px 0px 0px">
+        <a href="adminPage.jsp"><button style="width: 130px;">Back to Profile</button></a> 
+    </p>
     <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/sakila"
                        user="root" password="nbuser"/>

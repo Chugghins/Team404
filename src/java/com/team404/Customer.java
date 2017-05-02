@@ -112,16 +112,7 @@ public class Customer extends ActionForm
 
         this.email = null;
     }
-    public boolean validateEmail(){
-        //Counts how many @ characters are in the email
-        int count = email.length() - email.replace("@", "").length();
-        if(count != 1)//If none or more than one @ symbol
-        {
-            return false;
-        }
-        
-       return true;
-    }
+
     
     /**
      * This is the action called from the Struts framework.
@@ -142,7 +133,7 @@ public class Customer extends ActionForm
             errors.add("first_name", new ActionMessage("errors.integer", "First Name"));
         } else if (first_name.length() <= 1)
         {
-            errors.add("first_name", new ActionMessage("errors.invaild", "Order number"));
+            errors.add("first_name", new ActionMessage("errors.invalid", "Order number"));
         }
         
         if (last_name == null || last_name.trim().equals(""))
@@ -156,7 +147,7 @@ public class Customer extends ActionForm
         if (email == null || email.trim().equals(""))
         {
             errors.add("email", new ActionMessage("errors.required", "Email"));
-        } else if (email.length() < 5)
+        } else if (email.length() - email.replace("@", "").length() != 1)
         {
             errors.add("email", new ActionMessage("errors.email", "Email"));
         }
@@ -166,7 +157,7 @@ public class Customer extends ActionForm
             errors.add("address", new ActionMessage("errors.required", "Address"));
         } else if (address.length() <= 4)
         {
-            errors.add("address", new ActionMessage("errors.invaild", "Address"));
+            errors.add("address", new ActionMessage("errors.invalid", "Address"));
         }
         
         if (city == null || city.trim().equals(""))
@@ -174,7 +165,7 @@ public class Customer extends ActionForm
             errors.add("city", new ActionMessage("errors.required", "City"));
         } else if (city.length() <= 2)
         {
-            errors.add("city", new ActionMessage("errors.invaild", "City"));
+            errors.add("city", new ActionMessage("errors.invalid", "City"));
         }
         
         if (country == null || country.trim().equals(""))
@@ -182,16 +173,16 @@ public class Customer extends ActionForm
             errors.add("country", new ActionMessage("errors.required", "Country"));
         } else if (country.length() <= 2)
         {
-            errors.add("country", new ActionMessage("errors.invaild", "Country"));
+            errors.add("country", new ActionMessage("errors.invalid", "Country"));
         }
         
         if (phone == null || phone.trim().equals(""))
         {
             errors.add("phone", new ActionMessage("errors.required", "Phone"));
         }
-        else if (phone.length() != 10)
+        else if (phone.length() < 10)
         {
-            errors.add("phone", new ActionMessage("errors.minlength", "Phone"));
+            errors.add("phone", new ActionMessage("errors.minlength", "Phone", "10"));
         }
         
         if (password == null || password.trim().equals(""))
@@ -200,7 +191,7 @@ public class Customer extends ActionForm
         }
         else if (password.length() < 8)
         {
-            errors.add("password", new ActionMessage("errors.minlength", "Password"));
+            errors.add("password", new ActionMessage("errors.minlength", "Password", "8"));
         }
         
         

@@ -55,7 +55,9 @@
     <body>
 
     <header><a  style="text-decoration: none;" href=adminPage.jsp>Customer Report!</a></header>
-
+    <p align="right" style="padding: 0px 30px 0px 0px">
+        <a href="adminPage.jsp"><button style="width: 130px;">Back to Profile</button></a> 
+    </p>
     <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/sakila"
                        user="root" password="nbuser"/>
@@ -65,36 +67,36 @@
     </sql:query>
     <table border="1" id="customer">
         <thead>
-        <tr>
-            <th>Customer ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Amount Spent</th>
-            <th># Movies Rented</th>
-        </tr>
+            <tr>
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Amount Spent</th>
+                <th># Movies Rented</th>
+            </tr>
         </thead>
         <tbody>
-        <c:forEach var="row" items="${result.rows}">
-            <tr>
-                <th><c:out value="${row.customer_id}"/></th>
-                <th><c:out value="${row.first_name}"/></th>
-                <th><c:out value="${row.last_name}"/></th>
-                <th><c:out value="$${row.Sales}"/></th>
-                <th><c:out value="${row.Rented}"/></th>
-            </tr>
-        </c:forEach>
+            <c:forEach var="row" items="${result.rows}">
+                <tr>
+                    <th><c:out value="${row.customer_id}"/></th>
+                    <th><c:out value="${row.first_name}"/></th>
+                    <th><c:out value="${row.last_name}"/></th>
+                    <th><c:out value="$${row.Sales}"/></th>
+                    <th><c:out value="${row.Rented}"/></th>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('#customer').DataTable();
-    });
+        $(document).ready(function () {
+            $('#customer').DataTable();
+        });
 
-</script>
+    </script>
 
-<div class="footer"><a class="one" href=login.jsp>Team404</a></div>
+    <div class="footer"><a class="one" href=login.jsp>Team404</a></div>
 </body>
 </html>

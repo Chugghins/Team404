@@ -55,7 +55,9 @@
     <body>
 
     <header><a  style="text-decoration: none;" href=adminPage.jsp>Revenue Report!</a></header>
-
+    <p align="right" style="padding: 0px 30px 0px 0px">
+        <a href="adminPage.jsp"><button style="width: 130px;">Back to Profile</button></a> 
+    </p>
     <div>
 
         <sql:setDataSource var = "snapshot" driver="com.mysql.jdbc.Driver"
@@ -67,10 +69,10 @@
 
         <table border="1" id="revenue">
             <thead>
-            <tr>
-                <th>Category</th>
-                <th>Total Sales</th>
-            </tr>
+                <tr>
+                    <th>Category</th>
+                    <th>Total Sales</th>
+                </tr>
             </thead>
             <tbody>
                 <c:forEach var="row" items="${result.rows}">

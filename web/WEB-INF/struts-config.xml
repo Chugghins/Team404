@@ -31,11 +31,9 @@
             
             <action name="Customer" path="/newCustomer" type="com.team404.NewCustomerAction" scope="request" input="/newCustomer.jsp">
                 <forward name="success" path="/login.jsp" redirect="true"/>
-                <forward name="failure" path="/failure.jsp" redirect="true"/>
             </action>
             <action name="Admin" path="/newAdmin" type="com.team404.NewAdminAction" scope="request" input="/newAdmin.jsp">
-                <forward name="success" path="/adminPage.jsp" redirect="true"/>
-                <forward name="failure" path="/failure.jsp" redirect="true"/>        
+                <forward name="success" path="/adminPage.jsp" redirect="true"/>      
             </action>
             <action input="/customerPage.jsp" name="Movie" path="/search" scope="session" type="com.team404.SearchAction">
                 <forward name="success" path="/searchPage.jsp" redirect="true" />

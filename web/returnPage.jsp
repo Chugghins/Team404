@@ -81,7 +81,7 @@
                     <th>Film ID</th>
                     <th>Title</th>
                     <th>Rental Date</th>
-                    <th>Return Date</th>
+                    <th>Late Fee</th>
                     <th>Return Movie</th>
                 </tr>
             </thead>
