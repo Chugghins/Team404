@@ -36,7 +36,7 @@ public class NewCustomerAction extends org.apache.struts.action.Action {
         Customer cForm = (Customer) form;
         RegisterDAO DAO = new RegisterDAO();
         //Tells model to save entered data if data is valid
-        if (DAO.isCustEmailAval(cForm) == true && cForm.validateEmail() == true) 
+        if (DAO.isCustEmailAval(cForm) == true) 
         {
             DAO.newCustomer(cForm);
 

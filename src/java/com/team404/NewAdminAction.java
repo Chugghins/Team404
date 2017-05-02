@@ -37,7 +37,7 @@ public class NewAdminAction extends org.apache.struts.action.Action {
         RegisterDAO DAO = new RegisterDAO();
 
             //Tells model to save entered data if data is valid
-        if (DAO.isAdminEmailAval(aForm) == true && aForm.validateEmail() == true) 
+        if (DAO.isAdminEmailAval(aForm) == true) 
         {
             DAO.newAdmin(aForm);
 
